@@ -8,7 +8,7 @@ Library           Browser
 ${USERNAME_INPUT}     [id="signin-username"]
 ${PASSWORD_INPUT}     [id="signin-password"]
 ${LOGIN_BUTTON}       button[type="submit"]
-${ERROR_MESSAGE}      [id="toast-container"]
+${ERROR_MESSAGE}      [id="toast-container"]x`
 
 
 *** Keywords ***
