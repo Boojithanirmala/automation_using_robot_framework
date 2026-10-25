@@ -7,7 +7,7 @@ try:
 except ImportError:
     pass
 
-# ---- Environment ----
+# ---- Environmenta ----
 BASE_URL = os.getenv("QA_BASE_URL", "").rstrip("/")      
 LOGIN_PATH = os.getenv("LOGIN_PATH", "/authentication/login")
 DASHBOARD_PATH = os.getenv("DASHBOARD_PATH", "/crm")

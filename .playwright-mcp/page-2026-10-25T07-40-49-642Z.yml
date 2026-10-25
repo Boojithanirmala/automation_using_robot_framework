@@ -1,0 +1,41 @@
+- generic [ref=e1]:
+  - generic [ref=e8]:
+    - generic [ref=e9]:
+      - link [ref=e11] [cursor=pointer]:
+        - /url: /
+        - img "logo" [ref=e12]
+      - heading "Welcome back" [level=4] [ref=e13]
+      - paragraph [ref=e14]: Sign in to your admin account to continue
+      - generic [ref=e16]:
+        - generic [ref=e17]:
+          - generic [ref=e18]: Email Address
+          - generic [ref=e19]:
+            - generic [ref=e20]: 
+            - textbox "Email Address" [ref=e22]:
+              - /placeholder: admin@company.com
+              - text: "0000"
+        - generic [ref=e23]:
+          - generic [ref=e24]: Password
+          - generic [ref=e25]:
+            - generic [ref=e26]: 
+            - textbox "Password" [ref=e28]:
+              - /placeholder: Enter your password
+              - text: Admin@2025
+            - button "" [ref=e29] [cursor=pointer]
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - checkbox "Remember me" [ref=e33]
+            - generic [ref=e34]: Remember me
+          - link "Forgot password?" [ref=e35] [cursor=pointer]:
+            - /url: /authentication/forget-password
+        - button "Sign In " [active] [ref=e37] [cursor=pointer]:
+          - text: Sign In
+          - generic [ref=e38]: 
+    - generic [ref=e40]:
+      - text: Powered by
+      - link "Codenzo Infotech Establishment" [ref=e41] [cursor=pointer]:
+        - /url: https://codenzogroup.com/
+      - text: © 2026
+  - generic [ref=e42]:
+    - generic "Success" [ref=e43]
+    - alert "Login successful" [ref=e44]

@@ -1,0 +1,66 @@
+[   11202ms] [LOG] ✅ Success alert: Login successful @ https://qa.devcodenzo.online/chunk-L6YN4LGC.js:0
+[   11451ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[   11456ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[   11466ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[   11882ms] [LOG] User Basic ID 6790ba604360d90340e47034 @ https://qa.devcodenzo.online/chunk-HG3APK3M.js:162
+[   11888ms] [LOG] User ID 0000 @ https://qa.devcodenzo.online/chunk-HG3APK3M.js:162
+[   15529ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[   15531ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[   15534ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[   15607ms] [LOG] User Basic ID 6790ba604360d90340e47034 @ https://qa.devcodenzo.online/chunk-HG3APK3M.js:162
+[   15610ms] [LOG] User ID 0000 @ https://qa.devcodenzo.online/chunk-HG3APK3M.js:162
+[   35346ms] [LOG] [ModuleAccess] guard checked /PayslipList -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[   36258ms] [LOG] Returned Data:: [Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object] @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:4608
+[   36396ms] [LOG] User allowed by employee mapping @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:5109
+[   36509ms] [LOG] [COLS] payslipForm formData: 1 cols: 7 @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:4729
+[   40662ms] Uncaught TypeError: Cannot read properties of undefined (reading 'backdrop')
+    at _initializeBackDrop (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:52554)
+    at On (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:51461)
+    at getOrCreateInstance (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:7912)
+    at <anonymous> (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:55450)
+    at n (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:4237)
+[   40924ms] [LOG] [ModuleAccess] guard checked /dynamicformadd/payslipForm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[   41293ms] [LOG] ℹ️ fetchStorekeeperStore skipped — form is 'payslipForm', not 'storetransferForm' @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:653
+[   41304ms] [LOG] ✅ Base Form Source Loaded @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[   41450ms] [WARNING] No menuType found in fetchedData. @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:492
+[   41464ms] [LOG] Create Form With Layouts!!! @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:456
+[   41504ms] [LOG] paySlipFormCalc is working on!!! @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[   41525ms] [LOG] ✅ Fetching sequence configuration... @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[   41530ms] [LOG] 👉 INSIDE fetchUniqueNumber 6a5f0445f035371c813540c0 @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[   41643ms] [LOG] approvalWorkFlowData received: {_id: 6ad74132b5f9ecf5e21fc935, mappingFormName: 6a5f0445f035371c813540c0, rejectionFlow: Decrease Levels, isRecordsFiltered: false, isConversion: no} @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[  326533ms] [LOG] fetch Employees For Payslip @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[  326591ms] [LOG] ✅ Warning alert: Please fill the payable month. @ https://qa.devcodenzo.online/chunk-L6YN4LGC.js:0
+[ 1275449ms] [LOG] [TIMEOUT] Inactive for 10 minutes. Forcing logout. @ https://qa.devcodenzo.online/main-X2U6VRUW.js:12
+[ 2159523ms] [LOG] ✅ Success alert: Login successful @ https://qa.devcodenzo.online/chunk-L6YN4LGC.js:0
+[ 2159676ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[ 2159678ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[ 2159681ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[ 2159733ms] [LOG] User Basic ID 6790ba604360d90340e47034 @ https://qa.devcodenzo.online/chunk-HG3APK3M.js:162
+[ 2159734ms] [LOG] User ID 0000 @ https://qa.devcodenzo.online/chunk-HG3APK3M.js:162
+[ 2164739ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[ 2164741ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[ 2164744ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[ 2164892ms] [LOG] User Basic ID 6790ba604360d90340e47034 @ https://qa.devcodenzo.online/chunk-HG3APK3M.js:162
+[ 2164894ms] [LOG] User ID 0000 @ https://qa.devcodenzo.online/chunk-HG3APK3M.js:162
+[ 2181993ms] [LOG] [ModuleAccess] guard checked /PayslipList -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[ 2182578ms] [LOG] Returned Data:: [Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object] @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:4608
+[ 2182674ms] [LOG] User allowed by employee mapping @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:5109
+[ 2182799ms] [LOG] [COLS] payslipForm formData: 1 cols: 7 @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:4729
+[ 2187043ms] Uncaught TypeError: Cannot read properties of undefined (reading 'backdrop')
+    at _initializeBackDrop (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:52554)
+    at On (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:51461)
+    at getOrCreateInstance (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:7912)
+    at <anonymous> (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:55450)
+    at n (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:4237)
+[ 2187141ms] [LOG] [ModuleAccess] guard checked /dynamicformadd/payslipForm -> blocked: false @ https://qa.devcodenzo.online/chunk-MPWDCJNV.js:2544
+[ 2187357ms] [LOG] ℹ️ fetchStorekeeperStore skipped — form is 'payslipForm', not 'storetransferForm' @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:653
+[ 2187368ms] [LOG] ✅ Base Form Source Loaded @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[ 2187463ms] [WARNING] No menuType found in fetchedData. @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:492
+[ 2187467ms] [LOG] Create Form With Layouts!!! @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:456
+[ 2187482ms] [LOG] paySlipFormCalc is working on!!! @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[ 2187487ms] [LOG] ✅ Fetching sequence configuration... @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[ 2187488ms] [LOG] 👉 INSIDE fetchUniqueNumber 6a5f0445f035371c813540c0 @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[ 2187562ms] [LOG] approvalWorkFlowData received: {_id: 6ad74132b5f9ecf5e21fc935, mappingFormName: 6a5f0445f035371c813540c0, rejectionFlow: Decrease Levels, isRecordsFiltered: false, isConversion: no} @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[ 2203263ms] [LOG] fetch Employees For Payslip @ https://qa.devcodenzo.online/chunk-JSK32ULE.js:423
+[ 2203337ms] [LOG] ✅ Warning alert: Please fill the payable month. @ https://qa.devcodenzo.online/chunk-L6YN4LGC.js:0
+[ 3754664ms] [LOG] [TIMEOUT] Inactive for 10 minutes. Forcing logout. @ https://qa.devcodenzo.online/main-X2U6VRUW.js:12

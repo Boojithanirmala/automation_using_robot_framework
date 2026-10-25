@@ -1,0 +1,989 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.14.3 on win32)" generated="2026-10-25T23:08:59.672267" rpa="false" schemaversion="5">
+<suite id="s1" name="Salary Account" source="C:\Users\aadhi\automation_using_robot_framework\tests\salary_account.robot">
+<kw name="Open Application And Login" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-25T23:09:00.703100" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\aadhi\\automation_using_robot_framework\\browser\\traces\\temp\\3d32e8ed-ab48-44c1-85e9-6bdf30e705b6"}</msg>
+<msg time="2026-10-25T23:09:00.811491" level="INFO">Starting Browser process C:\Users\aadhi\automation_using_robot_framework\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:17289</msg>
+<msg time="2026-10-25T23:09:03.518757" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\aadhi\\automation_using_robot_framework\\browser\\traces\\temp\\3d32e8ed-ab48-44c1-85e9-6bdf30e705b6"}</msg>
+<arg>chromium</arg>
+<arg>headless=False</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-25T23:09:00.700888" elapsed="2.818372"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-25T23:09:03.563508" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1920,
+    "height": 1080
+  }
+}</msg>
+<msg time="2026-10-25T23:09:03.648473" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-25T23:09:03.648659" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1920, 'height': 1080}}</msg>
+<arg>viewport={'width': 1920, 'height': 1080}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-25T23:09:03.520884" elapsed="0.128042"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-25T23:09:09.202868" level="INFO">Successfully initialized new page object and opened url: https://qa.devcodenzo.online</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-25T23:09:03.649646" elapsed="5.553845"/>
+</kw>
+<doc>Replace with your project's existing login keyword.</doc>
+<status status="PASS" start="2026-10-25T23:09:00.697711" elapsed="8.506170"/>
+</kw>
+<test id="s1-t1" name="Verify Salary Account Form Is Displayed" line="59">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:10.495411" level="INFO">Successfully opened URL https://qa.devcodenzo.online/salary-account/add</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-25T23:09:09.326639" elapsed="1.169276"/>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-25T23:09:20.905185" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-25T23:09:20.906020" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:20.909198" level="FAIL">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('input[name="salaryAccountNo"]') to be visible
+</msg>
+<arg>${SALARY_ACCOUNT_NO_INPUT}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="FAIL" start="2026-10-25T23:09:10.512658" elapsed="10.426726">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('input[name="salaryAccountNo"]') to be visible
+</status>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${SALARY_ACCOUNT_PAYABLE_MONTH_INPUT}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-10-25T23:09:20.940579" elapsed="0.000557"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${SALARY_ACCOUNT_PAYSLIP_NO_DROPDOWN}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-10-25T23:09:20.941954" elapsed="0.000606"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${SALARY_ACCOUNT_SALARY_GROUP_DROPDOWN}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-10-25T23:09:20.943720" elapsed="0.000599"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${SALARY_ACCOUNT_PAYMENT_THROUGH_DROPDOWN}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-10-25T23:09:20.945668" elapsed="0.000494"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${SALARY_ACCOUNT_EMPLOYEES_DROPDOWN}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-10-25T23:09:20.947246" elapsed="0.000490"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${SALARY_ACCOUNT_REMARKS_TEXTAREA}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-10-25T23:09:20.948527" elapsed="0.000458"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<arg>${FORM_SAVE_BUTTON}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="NOT RUN" start="2026-10-25T23:09:20.951132" elapsed="0.000637"/>
+</kw>
+<status status="FAIL" start="2026-10-25T23:09:10.511049" elapsed="10.441621">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('input[name="salaryAccountNo"]') to be visible
+</status>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:09.324906" elapsed="11.628320">TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('input[name="salaryAccountNo"]') to be visible
+</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:20.968093" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:21.046921" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:21.057661" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:21.069246" level="INFO">Returned active context id: CURRENT</msg>
+<msg time="2026-10-25T23:09:21.070585" level="INFO">Switching context to context=1432edd7-63f3-491f-a1d7-5fbfed90cfe4 in CURRENT</msg>
+<msg time="2026-10-25T23:09:21.078976" level="INFO">Successfully changed active context: context=1432edd7-63f3-491f-a1d7-5fbfed90cfe4</msg>
+<msg time="2026-10-25T23:09:21.143478" level="INFO">Successfully closed Context</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:20.957284" elapsed="0.186730"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:20.955222" elapsed="0.189135"/>
+</kw>
+<tag>smoke</tag>
+<tag>ui</tag>
+<status status="FAIL" start="2026-10-25T23:09:09.204195" elapsed="11.940755">Setup failed:
+TimeoutError: locator.waitFor: Timeout 10000ms exceeded.
+Call log:
+  - waiting for locator('input[name="salaryAccountNo"]') to be visible
+</status>
+</test>
+<test id="s1-t2" name="Verify Salary Account Number Is Auto Generated And Read Only" line="63">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:21.373210" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:21.376744" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:21.379765" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:21.280295" elapsed="0.120497">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:21.401636" elapsed="0.000410"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:21.278499" elapsed="0.123969">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:21.429580" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:21.435109" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:21.442150" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:21.455041" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:21.455410" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:21.420923" elapsed="0.036483"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:21.417728" elapsed="0.040055"/>
+</kw>
+<tag>ui</tag>
+<status status="FAIL" start="2026-10-25T23:09:21.222510" elapsed="0.235866">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t3" name="Verify Month Picker Shows All Months" line="71">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:21.531817" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:21.532282" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:21.538632" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:21.498690" elapsed="0.049585">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:21.549174" elapsed="0.004702"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:21.496421" elapsed="0.057945">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:21.566196" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:21.573596" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:21.585514" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:21.597021" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:21.597460" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:21.558289" elapsed="0.042252"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:21.556546" elapsed="0.044377"/>
+</kw>
+<tag>month_picker</tag>
+<status status="FAIL" start="2026-10-25T23:09:21.479760" elapsed="0.121732">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t4" name="Verify Payable Month Can Be Selected" line="76">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:21.657363" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:21.658335" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:21.659083" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:21.635332" elapsed="0.031127">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:21.667303" elapsed="0.000405"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:21.631830" elapsed="0.036230">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:21.678251" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:21.683353" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:21.689887" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:21.700956" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:21.701375" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:21.670824" elapsed="0.032905"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:21.669251" elapsed="0.034823"/>
+</kw>
+<tag>month_picker</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2026-10-25T23:09:21.620149" elapsed="0.084361">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t5" name="Verify Year Can Be Typed In The Month Picker" line="81">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:21.760378" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:21.760679" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:21.760907" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:21.738958" elapsed="0.026544">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:21.766752" elapsed="0.000449"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:21.737159" elapsed="0.030447">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:21.777654" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:21.782030" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:21.788845" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:21.797379" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:21.797634" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:21.771276" elapsed="0.027193"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:21.768955" elapsed="0.029869"/>
+</kw>
+<tag>month_picker</tag>
+<status status="FAIL" start="2026-10-25T23:09:21.720783" elapsed="0.079405">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t6" name="Verify Year Can Be Changed Using Keyboard Arrow Keys" line="87">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:21.852651" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:21.853085" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:21.853412" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:21.838914" elapsed="0.026121">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:21.866149" elapsed="0.000485"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:21.829900" elapsed="0.037154">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:21.877671" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:21.881856" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:21.893229" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:21.910119" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:21.910659" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:21.869086" elapsed="0.042761"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:21.868113" elapsed="0.043982"/>
+</kw>
+<tag>month_picker</tag>
+<status status="FAIL" start="2026-10-25T23:09:21.814294" elapsed="0.098224">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t7" name="Verify Year Can Be Changed Using Next And Previous Arrows" line="98">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:22.048052" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:22.048341" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:22.048565" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.013361" elapsed="0.044735">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:22.058632" elapsed="0.000345"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.011150" elapsed="0.048095">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:22.065566" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:22.071159" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:22.074425" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:22.081123" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:22.081502" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:22.061271" elapsed="0.021872"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:22.060239" elapsed="0.024728"/>
+</kw>
+<tag>month_picker</tag>
+<status status="FAIL" start="2026-10-25T23:09:21.942794" elapsed="0.142761">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t8" name="Verify Payslip Dropdown Lists Payslips Of The Selected Month" line="113">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:22.155188" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:22.156087" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:22.156670" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.130219" elapsed="0.031215">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:22.161982" elapsed="0.000312"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.129161" elapsed="0.033394">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:22.169424" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:22.172056" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:22.175221" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:22.180799" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:22.181067" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:22.164534" elapsed="0.017353"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:22.163512" elapsed="0.018594"/>
+</kw>
+<tag>payslip</tag>
+<status status="FAIL" start="2026-10-25T23:09:22.107676" elapsed="0.077297">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t9" name="Verify Payslip Dropdown Is Empty When Month Has No Payslips" line="118">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:22.238287" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:22.238840" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:22.239071" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.211694" elapsed="0.032038">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:22.244303" elapsed="0.000311"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.208587" elapsed="0.036288">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:22.252406" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:22.255537" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:22.258808" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:22.264092" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:22.264344" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:22.246836" elapsed="0.020692"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:22.245828" elapsed="0.022393"/>
+</kw>
+<tag>payslip</tag>
+<status status="FAIL" start="2026-10-25T23:09:22.196358" elapsed="0.072417">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t10" name="Verify Payslip Dropdown Search Works" line="123">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:22.322872" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:22.323162" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:22.323386" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.298033" elapsed="0.030232">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:22.328818" elapsed="0.000294"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.295256" elapsed="0.034116">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:22.337565" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:22.340252" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:22.345198" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:22.354207" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:22.354631" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:22.331370" elapsed="0.032268"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:22.330336" elapsed="0.033612"/>
+</kw>
+<tag>dropdown</tag>
+<tag>payslip</tag>
+<status status="FAIL" start="2026-10-25T23:09:22.281955" elapsed="0.082374">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t11" name="Verify Payslip Options Change When Month Changes" line="130">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:22.432637" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:22.433261" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:22.433650" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.404459" elapsed="0.035861">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:22.441021" elapsed="0.000365"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.401446" elapsed="0.040222">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:22.447981" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:22.454968" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:22.458893" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:22.467873" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:22.468324" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:22.443658" elapsed="0.026725"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:22.442616" elapsed="0.028217"/>
+</kw>
+<tag>payslip</tag>
+<status status="FAIL" start="2026-10-25T23:09:22.382078" elapsed="0.089264">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t12" name="Verify Only One Payslip Can Be Selected" line="137">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:22.537048" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:22.537721" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:22.538009" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.510368" elapsed="0.035075">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:22.546080" elapsed="0.000374"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.508808" elapsed="0.037920">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:22.561579" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:22.570924" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:22.579497" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:22.592754" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:22.593037" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:22.551405" elapsed="0.042793"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:22.548289" elapsed="0.046206"/>
+</kw>
+<doc>Needs two payslips in the same month (PS/2026/0009 and PS/2026/0010).</doc>
+<tag>payslip</tag>
+<status status="FAIL" start="2026-10-25T23:09:22.493023" elapsed="0.101870">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t13" name="Verify Details Are Auto Populated After Selecting Payslip" line="149">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:22.665346" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:22.666830" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:22.667662" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.629945" elapsed="0.046724">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:22.677461" elapsed="0.000342"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.627396" elapsed="0.050706">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:22.688931" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:22.691840" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:22.696008" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:22.705376" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:22.705709" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:22.681515" elapsed="0.025061"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:22.679088" elapsed="0.027713"/>
+</kw>
+<tag>auto_populate</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2026-10-25T23:09:22.608995" elapsed="0.098213">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t14" name="Verify Auto Populated Fields Are Not Editable" line="156">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:22.774859" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:22.775151" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:22.775428" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.750723" elapsed="0.029699">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:22.781096" elapsed="0.000390"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.748752" elapsed="0.033072">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:22.792715" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:22.797627" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:22.804332" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:22.815872" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:22.816241" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:22.785699" elapsed="0.033585"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:22.783601" elapsed="0.036141"/>
+</kw>
+<tag>auto_populate</tag>
+<status status="FAIL" start="2026-10-25T23:09:22.733683" elapsed="0.086738">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t15" name="Verify Preview Is Displayed After Selecting Payslip" line="164">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:22.893152" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:22.893446" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:22.893723" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.852870" elapsed="0.045924">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:22.901498" elapsed="0.000647"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.851427" elapsed="0.051256">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:22.909453" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:22.914287" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:22.918756" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:22.925661" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:22.925937" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:22.904875" elapsed="0.023917"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:22.903767" elapsed="0.025563"/>
+</kw>
+<tag>preview</tag>
+<status status="FAIL" start="2026-10-25T23:09:22.834121" elapsed="0.096962">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t16" name="Verify Preview Shows Net Salary For Each Employee" line="170">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:22.987159" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:22.987466" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:22.987705" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.958987" elapsed="0.033457">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:22.993024" elapsed="0.000344"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:22.957478" elapsed="0.036224">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:23.003906" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:23.006840" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:23.010069" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:23.018168" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:23.018568" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:22.996444" elapsed="0.024059"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:22.994812" elapsed="0.026056"/>
+</kw>
+<tag>preview</tag>
+<status status="FAIL" start="2026-10-25T23:09:22.943426" elapsed="0.077924">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t17" name="Verify Required Messages On Empty Submit" line="180">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:23.077835" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:23.078261" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:23.078612" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.055098" elapsed="0.035844">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:23.091570" elapsed="0.000345"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.051935" elapsed="0.040264">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:23.101614" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:23.107107" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:23.110604" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:23.126522" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:23.126788" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:23.094857" elapsed="0.032794"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:23.093230" elapsed="0.034666"/>
+</kw>
+<tag>validation</tag>
+<status status="FAIL" start="2026-10-25T23:09:23.038819" elapsed="0.089440">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t18" name="Verify Payslip Required Message When Only Month Is Selected" line="186">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:23.178458" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:23.179950" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:23.180526" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.156529" elapsed="0.032771">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:23.189926" elapsed="0.000333"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.151377" elapsed="0.039189">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:23.197919" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:23.203078" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:23.207863" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:23.215517" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:23.216007" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:23.192820" elapsed="0.027207"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:23.191584" elapsed="0.028871"/>
+</kw>
+<tag>validation</tag>
+<status status="FAIL" start="2026-10-25T23:09:23.140631" elapsed="0.080299">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t19" name="Verify Reset Button Clears The Form" line="196">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:23.274043" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:23.274492" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:23.274856" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.256016" elapsed="0.030634">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:23.287676" elapsed="0.000456"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.254297" elapsed="0.034251">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:23.295498" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:23.301258" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:23.307372" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:23.325202" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:23.325579" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:23.291064" elapsed="0.036097"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:23.289619" elapsed="0.037977"/>
+</kw>
+<tag>reset</tag>
+<status status="FAIL" start="2026-10-25T23:09:23.239679" elapsed="0.088467">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t20" name="Verify Back Button Navigates Away From The Form" line="202">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:23.388495" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:23.388903" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:23.389237" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.362625" elapsed="0.032702">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:23.396097" elapsed="0.000435"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.355662" elapsed="0.041524">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:23.407340" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:23.411219" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:23.414734" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:23.425888" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:23.426264" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:23.400858" elapsed="0.027001"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:23.398342" elapsed="0.034834"/>
+</kw>
+<tag>navigation</tag>
+<status status="FAIL" start="2026-10-25T23:09:23.343388" elapsed="0.092011">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t21" name="Verify Salary Account Can Be Created For A Payslip" line="210">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:23.492577" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:23.492881" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:23.493143" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.468440" elapsed="0.029693">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:23.499575" elapsed="0.000431"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.464510" elapsed="0.035909">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:23.509157" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:23.513277" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:23.520006" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:23.528299" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:23.528676" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:23.503554" elapsed="0.026915"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:23.501757" elapsed="0.029098"/>
+</kw>
+<doc>Consumes PS/2026/0009. Use a fresh payslip for every run.</doc>
+<tag>save</tag>
+<tag>smoke</tag>
+<status status="FAIL" start="2026-10-25T23:09:23.447840" elapsed="0.083550">Setup failed:
+Error: No page open.</status>
+</test>
+<test id="s1-t22" name="Verify Saved Payslip Is Not Listed Again For The Same Month" line="217">
+<kw name="Open Salary Account Page" type="SETUP">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-25T23:09:23.592997" level="INFO">Keyword 'Take Screenshot  fail-screenshot-{index}' could not be run on failure:
+Error: Tried to take screenshot, but no page was open.</msg>
+<msg time="2026-10-25T23:09:23.593294" level="INFO">See also file:///C:/Users/aadhi/automation_using_robot_framework/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-25T23:09:23.593564" level="FAIL">Error: No page open.</msg>
+<arg>${BASE_URL}/salary-account/add</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.570336" elapsed="0.029036">Error: No page open.</status>
+</kw>
+<kw name="Salary Account Form Should Be Visible" owner="salaryAccount_page">
+<status status="NOT RUN" start="2026-10-25T23:09:23.600483" elapsed="0.000567"/>
+</kw>
+<doc>Replace with your project's navigation keyword / URL.</doc>
+<status status="FAIL" start="2026-10-25T23:09:23.567162" elapsed="0.034413">Error: No page open.</status>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-25T23:09:23.610516" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-25T23:09:23.613804" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-25T23:09:23.619325" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-25T23:09:23.627332" level="INFO">Returned info that no contexts are open</msg>
+<msg time="2026-10-25T23:09:23.627571" level="INFO">No open context found.</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-25T23:09:23.604880" elapsed="0.023614"/>
+</kw>
+<status status="PASS" start="2026-10-25T23:09:23.603099" elapsed="0.025668"/>
+</kw>
+<doc>One salary account per payslip: after saving, the same month must not
+list the same payslip no. Uses a payslip that was already saved.</doc>
+<tag>business_rule</tag>
+<tag>save</tag>
+<status status="FAIL" start="2026-10-25T23:09:23.552633" elapsed="0.076504">Setup failed:
+Error: No page open.</status>
+</test>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-25T23:09:24.375719" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-25T23:09:23.648721" elapsed="0.727303"/>
+</kw>
+<doc>Salary Account form test suite.</doc>
+<status status="FAIL" start="2026-10-25T23:08:59.676004" elapsed="24.700196"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="22" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="2" skip="0">auto_populate</stat>
+<stat pass="0" fail="1" skip="0">business_rule</stat>
+<stat pass="0" fail="1" skip="0">dropdown</stat>
+<stat pass="0" fail="5" skip="0">month_picker</stat>
+<stat pass="0" fail="1" skip="0">navigation</stat>
+<stat pass="0" fail="5" skip="0">payslip</stat>
+<stat pass="0" fail="2" skip="0">preview</stat>
+<stat pass="0" fail="1" skip="0">reset</stat>
+<stat pass="0" fail="2" skip="0">save</stat>
+<stat pass="0" fail="4" skip="0">smoke</stat>
+<stat pass="0" fail="2" skip="0">ui</stat>
+<stat pass="0" fail="2" skip="0">validation</stat>
+</tag>
+<suite>
+<stat name="Salary Account" id="s1" pass="0" fail="22" skip="0">Salary Account</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

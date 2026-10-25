@@ -1,0 +1,204 @@
+- generic [ref=f2e1]:
+  - generic [ref=f2e390]:
+    - banner [ref=f2e391]:
+      - generic [ref=f2e392]:
+        - link [ref=f2e396] [cursor=pointer]:
+          - /url: /crm
+          - img "logo" [ref=f2e397]
+        - generic [ref=f2e398]:
+          - link "" [ref=f2e400] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - text: 
+          - generic [ref=f2e402]:
+            - link " 0" [ref=f2e403] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f2e404]: 
+              - generic [ref=f2e405]: "0"
+            - text: 
+          - generic [ref=f2e406]:
+            - link "img AGM support 0000 IT Support Specialist" [ref=f2e407] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f2e408]:
+                - img "img" [ref=f2e410]
+                - generic [ref=f2e411]:
+                  - paragraph [ref=f2e412]: AGM support
+                  - generic [ref=f2e413]: "0000"
+                  - generic [ref=f2e414]: IT Support Specialist
+            - text:  
+    - complementary [ref=f2e415]:
+      - region "scrollable content" [ref=f2e419]:
+        - navigation [ref=f2e421]:
+          - list [ref=f2e422]:
+            - listitem [ref=f2e423]:
+              - link " Dashboard" [ref=f2e424] [cursor=pointer]:
+                - /url: /crm
+                - generic [ref=f2e425]: 
+                - generic [ref=f2e426]: Dashboard
+            - listitem [ref=f2e427]:
+              - link " Masters " [ref=f2e428] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e429]: 
+                - generic [ref=f2e430]: Masters
+                - generic [ref=f2e431]: 
+            - listitem [ref=f2e432]:
+              - link " Organization " [ref=f2e433] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e434]: 
+                - generic [ref=f2e435]: Organization
+                - generic [ref=f2e436]: 
+            - listitem [ref=f2e437]:
+              - link " Procurement " [ref=f2e438] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e439]: 
+                - generic [ref=f2e440]: Procurement
+                - generic [ref=f2e441]: 
+            - listitem [ref=f2e442]:
+              - link " HRMS " [ref=f2e443] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e444]: 
+                - generic [ref=f2e445]: HRMS
+                - generic [ref=f2e446]: 
+            - listitem [ref=f2e447]:
+              - link " Sales " [ref=f2e448] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e449]: 
+                - generic [ref=f2e450]: Sales
+                - generic [ref=f2e451]: 
+            - listitem [ref=f2e452]:
+              - link " Procurement " [ref=f2e453] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e454]: 
+                - generic [ref=f2e455]: Procurement
+                - generic [ref=f2e456]: 
+            - listitem [ref=f2e457]:
+              - link " Finance " [ref=f2e458] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e459]: 
+                - generic [ref=f2e460]: Finance
+                - generic [ref=f2e461]: 
+            - listitem [ref=f2e462]:
+              - link " Inventory " [ref=f2e463] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e464]: 
+                - generic [ref=f2e465]: Inventory
+                - generic [ref=f2e466]: 
+            - listitem [ref=f2e467]:
+              - link " Operations " [ref=f2e468] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e469]: 
+                - generic [ref=f2e470]: Operations
+                - generic [ref=f2e471]: 
+            - listitem [ref=f2e472]:
+              - link " Vehicle Management " [ref=f2e473] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e474]: 
+                - generic [ref=f2e475]: Vehicle Management
+                - generic [ref=f2e476]: 
+            - listitem [ref=f2e477]:
+              - link " Reports " [ref=f2e478] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=f2e479]: 
+                - generic [ref=f2e480]: Reports
+                - generic [ref=f2e481]: 
+          - generic [ref=f2e482] [cursor=pointer]
+    - generic [ref=f2e508]:
+      - generic [ref=f2e509]:
+        - heading "Payslip" [level=5] [ref=f2e510]
+        - button " Back" [ref=f2e512] [cursor=pointer]:
+          - generic [ref=f2e513]: 
+          - text: Back
+      - generic [ref=f2e520]:
+        - generic [ref=f2e521]:
+          - generic [ref=f2e523]:
+            - generic [ref=f2e524]: Payslip No
+            - generic "PS/2026/0009" [ref=f2e525]:
+              - textbox [disabled] [ref=f2e526]: PS/2026/0009
+          - generic [ref=f2e528]:
+            - generic [ref=f2e529]: Employees *
+            - generic [ref=f2e532]:
+              - generic [ref=f2e533]:
+                - generic [ref=f2e534]: Select Employees
+                - combobox [ref=f2e535]:
+                  - textbox [ref=f2e536]
+              - generic [ref=f2e537] [cursor=pointer]
+        - generic [ref=f2e541]:
+          - generic [ref=f2e542]: Payable Month *
+          - generic [ref=f2e544]:
+            - generic [ref=f2e545] [cursor=pointer]: 
+            - textbox "Select Payable Month" [ref=f2e547] [cursor=pointer]
+            - generic [ref=f2e548] [cursor=pointer]: 
+        - generic [ref=f2e552]:
+          - generic [ref=f2e553]: Salary Group
+          - generic "Default select example" [ref=f2e555]:
+            - generic [ref=f2e556]:
+              - generic [ref=f2e557]:
+                - generic [ref=f2e558]: Select Salary Group
+                - combobox [expanded] [ref=f2e559]:
+                  - textbox [active] [ref=f2e560]
+                  - listbox "Options list" [ref=f2e589]:
+                    - listbox [ref=f2e590]:
+                      - generic [ref=f2e591]:
+                        - option "Select Salary Group" [ref=f2e592] [cursor=pointer]
+                        - option "RTFI active" [ref=f2e594] [cursor=pointer]:
+                          - generic [ref=f2e595]:
+                            - generic [ref=f2e596]: RTFI
+                            - generic [ref=f2e597]: active
+                        - option "PAUT active" [ref=f2e598] [cursor=pointer]:
+                          - generic [ref=f2e599]:
+                            - generic [ref=f2e600]: PAUT
+                            - generic [ref=f2e601]: active
+                        - option "WQT active" [ref=f2e602] [cursor=pointer]:
+                          - generic [ref=f2e603]:
+                            - generic [ref=f2e604]: WQT
+                            - generic [ref=f2e605]: active
+                        - option "Full Salary active" [ref=f2e606] [cursor=pointer]:
+                          - generic [ref=f2e607]:
+                            - generic [ref=f2e608]: Full Salary
+                            - generic [ref=f2e609]: active
+                        - option "PWHT active" [ref=f2e610] [cursor=pointer]:
+                          - generic [ref=f2e611]:
+                            - generic [ref=f2e612]: PWHT
+                            - generic [ref=f2e613]: active
+                        - option "DEEM/NDT active" [ref=f2e614] [cursor=pointer]:
+                          - generic [ref=f2e615]:
+                            - generic [ref=f2e616]: DEEM/NDT
+                            - generic [ref=f2e617]: active
+                        - option "Half Salary active" [ref=f2e618] [cursor=pointer]:
+                          - generic [ref=f2e619]:
+                            - generic [ref=f2e620]: Half Salary
+                            - generic [ref=f2e621]: active
+                        - option "Office active" [ref=f2e622] [cursor=pointer]:
+                          - generic [ref=f2e623]:
+                            - generic [ref=f2e624]: Office
+                            - generic [ref=f2e625]: active
+                        - option "NDT active" [ref=f2e626] [cursor=pointer]:
+                          - generic [ref=f2e627]:
+                            - generic [ref=f2e628]: NDT
+                            - generic [ref=f2e629]: active
+              - generic [ref=f2e561] [cursor=pointer]
+        - generic [ref=f2e564]:
+          - generic [ref=f2e565]: Payment Through
+          - generic "Default select example" [ref=f2e567]:
+            - generic [ref=f2e568]:
+              - generic [ref=f2e569]:
+                - generic [ref=f2e570]: Select Payment Through
+                - combobox [ref=f2e571]:
+                  - textbox [ref=f2e572]
+              - generic [ref=f2e573] [cursor=pointer]
+        - generic [ref=f2e576]:
+          - generic [ref=f2e577]: Remarks
+          - textbox "Enter Remarks" [ref=f2e579]
+        - generic [ref=f2e585]:
+          - button "Reset" [ref=f2e586] [cursor=pointer]
+          - button "Save" [ref=f2e587] [cursor=pointer]
+          - generic [ref=f2e588] [cursor=pointer]: Cancel
+    - contentinfo [ref=f2e502]:
+      - generic [ref=f2e504]:
+        - text: InfinityCore ERP System - V.0.8. Powered by
+        - img "logo" [ref=f2e505]
+        - link "Codenzo Infotech" [ref=f2e506] [cursor=pointer]:
+          - /url: https://codenzogroup.com/
+    - generic: 
+  - generic [ref=f2e630]:
+    - generic "Warning" [ref=f2e631]
+    - alert "Please fill the payable month." [ref=f2e632]

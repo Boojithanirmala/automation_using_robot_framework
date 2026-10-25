@@ -1,0 +1,231 @@
+- generic [ref=f1e4]:
+  - banner [ref=f1e5]:
+    - generic [ref=f1e6]:
+      - link [ref=f1e10] [cursor=pointer]:
+        - /url: /crm
+        - img "logo" [ref=f1e11]
+      - generic [ref=f1e12]:
+        - link "" [ref=f1e14] [cursor=pointer]:
+          - /url: javascript:void(0);
+          - text: 
+        - generic [ref=f1e16]:
+          - link " 0" [ref=f1e17] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - generic [ref=f1e18]: 
+            - generic [ref=f1e19]: "0"
+          - text: 
+        - generic [ref=f1e20]:
+          - link "img AGM support 0000 IT Support Specialist" [ref=f1e21] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - generic [ref=f1e22]:
+              - img "img" [ref=f1e24]
+              - generic [ref=f1e25]:
+                - paragraph [ref=f1e26]: AGM support
+                - generic [ref=f1e27]: "0000"
+                - generic [ref=f1e28]: IT Support Specialist
+          - text:  
+  - complementary [ref=f1e29]:
+    - region "scrollable content" [ref=f1e33]:
+      - navigation [ref=f1e35]:
+        - list [ref=f1e36]:
+          - listitem [ref=f1e37]:
+            - link " Dashboard" [ref=f1e38] [cursor=pointer]:
+              - /url: /crm
+              - generic [ref=f1e39]: 
+              - generic [ref=f1e40]: Dashboard
+          - listitem [ref=f1e41]:
+            - link " Masters " [ref=f1e42] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e43]: 
+              - generic [ref=f1e44]: Masters
+              - generic [ref=f1e45]: 
+          - listitem [ref=f1e46]:
+            - link " Organization " [ref=f1e47] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e48]: 
+              - generic [ref=f1e49]: Organization
+              - generic [ref=f1e50]: 
+          - listitem [ref=f1e51]:
+            - link " Procurement " [ref=f1e52] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e53]: 
+              - generic [ref=f1e54]: Procurement
+              - generic [ref=f1e55]: 
+          - listitem [ref=f1e56]:
+            - link " HRMS " [ref=f1e57] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e58]: 
+              - generic [ref=f1e59]: HRMS
+              - generic [ref=f1e60]: 
+          - listitem [ref=f1e61]:
+            - link " Sales " [ref=f1e62] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e63]: 
+              - generic [ref=f1e64]: Sales
+              - generic [ref=f1e65]: 
+          - listitem [ref=f1e66]:
+            - link " Procurement " [ref=f1e67] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e68]: 
+              - generic [ref=f1e69]: Procurement
+              - generic [ref=f1e70]: 
+          - listitem [ref=f1e71]:
+            - link " Finance " [ref=f1e72] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e73]: 
+              - generic [ref=f1e74]: Finance
+              - generic [ref=f1e75]: 
+          - listitem [ref=f1e76]:
+            - link " Inventory " [ref=f1e77] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e78]: 
+              - generic [ref=f1e79]: Inventory
+              - generic [ref=f1e80]: 
+          - listitem [ref=f1e81]:
+            - link " Operations " [ref=f1e82] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e83]: 
+              - generic [ref=f1e84]: Operations
+              - generic [ref=f1e85]: 
+          - listitem [ref=f1e86]:
+            - link " Vehicle Management " [ref=f1e87] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e88]: 
+              - generic [ref=f1e89]: Vehicle Management
+              - generic [ref=f1e90]: 
+          - listitem [ref=f1e91]:
+            - link " Reports " [ref=f1e92] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=f1e93]: 
+              - generic [ref=f1e94]: Reports
+              - generic [ref=f1e95]: 
+        - generic [ref=f1e96] [cursor=pointer]
+  - generic [ref=f1e101]:
+    - paragraph [ref=f1e104]: Welcome back, AGM!!!
+    - generic [ref=f1e106]:
+      - generic [ref=f1e109]:
+        - generic [ref=f1e114]:
+          - generic [ref=f1e115]: INCOME AND EXPENSE
+          - generic [ref=f1e116]: 2,798,556.61
+          - generic [ref=f1e117]:
+            - text: Net Profit |
+            - generic [ref=f1e118]:
+              - text: Last transaction on
+              - strong [ref=f1e119]: 24-Sept-2026
+          - generic [ref=f1e120]: From Current Year
+        - generic [ref=f1e122]:
+          - generic [ref=f1e123]: Income
+          - generic [ref=f1e124]: 3,056,939.85
+        - generic [ref=f1e125]:
+          - generic [ref=f1e126]: Expense
+          - generic [ref=f1e127]: 258,383.24
+      - generic [ref=f1e130]:
+        - generic [ref=f1e135]:
+          - generic [ref=f1e136]: TOTAL INVOICED (FY)
+          - generic [ref=f1e137]: 3,056,939.85
+          - generic [ref=f1e138]: 2026-2027
+        - generic [ref=f1e139]:
+          - generic [ref=f1e140]:
+            - generic [ref=f1e141]: 2,299,198.73
+            - generic [ref=f1e142]: Received
+          - generic [ref=f1e143]:
+            - generic [ref=f1e144]: 757,741.12
+            - generic [ref=f1e145]: Receivable
+        - generic [ref=f1e146]:
+          - generic [ref=f1e147]: 75.2%
+          - generic [ref=f1e148]: 24.8%
+      - generic [ref=f1e151]:
+        - generic [ref=f1e156]:
+          - generic [ref=f1e157]: TOTAL PURCHASES (FY)
+          - generic [ref=f1e158]: 258,383.24
+          - generic [ref=f1e159]: 2026-2027
+        - generic [ref=f1e160]:
+          - generic [ref=f1e161]:
+            - generic [ref=f1e162]: "0.00"
+            - generic [ref=f1e163]: Paid
+          - generic [ref=f1e164]:
+            - generic [ref=f1e165]: 258,383.24
+            - generic [ref=f1e166]: Payable (Pending)
+        - generic [ref=f1e167]: 100.0%
+      - generic [ref=f1e171]:
+        - img [ref=f1e175]:
+          - generic [ref=f1e178]:
+            - generic "2800000.00" [ref=f1e179]
+            - generic "2100000.00" [ref=f1e180]
+            - generic "1400000.00" [ref=f1e181]
+            - generic "700000.00" [ref=f1e182]
+            - generic "0.00" [ref=f1e183]
+          - generic [ref=f1e200]:
+            - generic "Jan 26" [ref=f1e201]
+            - generic "Feb 26" [ref=f1e202]
+            - generic "Mar 26" [ref=f1e203]
+            - generic "Apr 26" [ref=f1e204]
+            - generic "May 26" [ref=f1e205]
+            - generic "Jun 26" [ref=f1e206]
+            - generic "Jul 26" [ref=f1e207]
+            - generic "Aug 26" [ref=f1e208]
+            - generic "Sep 26" [ref=f1e209]
+            - generic "Oct 26" [ref=f1e210]
+            - generic "Nov 26" [ref=f1e211]
+            - generic "Dec 26" [ref=f1e212]
+        - generic [ref=f1e213]:
+          - generic [ref=f1e214]: Monthly Sales
+          - generic [ref=f1e215]: Monthly sales Performance
+      - generic [ref=f1e218]:
+        - img [ref=f1e222]:
+          - generic [ref=f1e225]:
+            - generic "5" [ref=f1e226]
+            - generic "4" [ref=f1e227]
+            - generic "3" [ref=f1e228]
+            - generic "2" [ref=f1e229]
+            - generic "1" [ref=f1e230]
+            - generic "0" [ref=f1e231]
+          - generic [ref=f1e249]:
+            - generic "16 Oct" [ref=f1e250]
+            - generic "17 Oct" [ref=f1e251]
+            - generic "18 Oct" [ref=f1e252]
+            - generic "19 Oct" [ref=f1e253]
+            - generic "20 Oct" [ref=f1e254]
+            - generic "21 Oct" [ref=f1e255]
+            - generic "22 Oct" [ref=f1e256]
+            - generic "23 Oct" [ref=f1e257]
+            - generic "24 Oct" [ref=f1e258]
+            - generic "25 Oct" [ref=f1e259]
+        - generic [ref=f1e260]:
+          - generic [ref=f1e261]: Daily Sales
+          - generic [ref=f1e262]: Last 10 Days sales Performance
+      - generic [ref=f1e265]:
+        - generic [ref=f1e270]:
+          - generic [ref=f1e271]: Total Sales
+          - generic [ref=f1e272]: 3,056,939.85
+        - generic [ref=f1e274]:
+          - generic [ref=f1e275]: "201"
+          - generic [ref=f1e276]: Invoice Raised
+      - generic [ref=f1e279]:
+        - generic [ref=f1e284]:
+          - generic [ref=f1e285]: Total Expenses
+          - generic [ref=f1e286]: 258,383.24
+        - generic [ref=f1e288]:
+          - generic [ref=f1e289]: "154"
+          - generic [ref=f1e290]: Total Expenses Recorded
+      - generic [ref=f1e293]:
+        - generic [ref=f1e298]:
+          - generic [ref=f1e299]: Payments Received
+          - generic [ref=f1e300]: 2,299,198.73
+        - generic [ref=f1e302]:
+          - generic [ref=f1e303]: "236"
+          - generic [ref=f1e304]: Total Transactions
+      - generic [ref=f1e307]:
+        - generic [ref=f1e312]:
+          - generic [ref=f1e313]: Latest Invoice Value
+          - generic [ref=f1e314]: "34.50"
+        - generic [ref=f1e318]:
+          - text: "Invoice Date :"
+          - strong [ref=f1e319]: 14-Oct-2026
+  - contentinfo [ref=f1e321]:
+    - generic [ref=f1e323]:
+      - text: InfinityCore ERP System - V.0.8. Powered by
+      - img "logo" [ref=f1e324]
+      - link "Codenzo Infotech" [ref=f1e325] [cursor=pointer]:
+        - /url: https://codenzogroup.com/
+  - generic: 

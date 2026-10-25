@@ -1,0 +1,39 @@
+[   14706ms] [LOG] ✅ Success alert: Login successful @ https://qa.devcodenzo.online/chunk-L6YN4LGC.js:0
+[   15206ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:2544
+[   15207ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:2544
+[   15209ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:2544
+[   16017ms] [LOG] User Basic ID 6790ba604360d90340e47034 @ https://qa.devcodenzo.online/chunk-7GPBHXFV.js:162
+[   16021ms] [LOG] User ID 0000 @ https://qa.devcodenzo.online/chunk-7GPBHXFV.js:162
+[   19342ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:2544
+[   19345ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:2544
+[   19348ms] [LOG] [ModuleAccess] guard checked /crm -> blocked: false @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:2544
+[   19392ms] [LOG] User Basic ID 6790ba604360d90340e47034 @ https://qa.devcodenzo.online/chunk-7GPBHXFV.js:162
+[   19395ms] [LOG] User ID 0000 @ https://qa.devcodenzo.online/chunk-7GPBHXFV.js:162
+[   44370ms] [LOG] [ModuleAccess] guard checked /salaryAccount -> blocked: false @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:2544
+[   45133ms] [LOG] Returned Data:: [Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object, Object] @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:4729
+[   45411ms] [LOG] User allowed by employee mapping @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:5230
+[   45421ms] [LOG] [COLS] salaryAccountForm formData: 1 cols: 7 @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:4850
+[   45665ms] [WARNING] AG Grid: invalid colDef property 'columnPosition' did you mean any of these: cellEditorPopupPosition, lockPosition, columnGroupShow, columnChooserParams, headerCheckboxSelectionFilteredOnly, suppressColumnsToolPanel, headerCheckboxSelectionCurrentPageOnly, columnsMenuParams.
+If you are trying to annotate colDef with application data, use the 'colDef.context' property instead. @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:876
+[   45666ms] [WARNING] AG Grid: to see all the valid colDef properties please check: https://www.ag-grid.com/angular-data-grid/column-properties/ @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:876
+[   49797ms] Uncaught TypeError: Cannot read properties of undefined (reading 'backdrop')
+    at _initializeBackDrop (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:52554)
+    at On (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:51461)
+    at getOrCreateInstance (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:7912)
+    at <anonymous> (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:55450)
+    at n (https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js:5:4237)
+[   49949ms] [LOG] [ModuleAccess] guard checked /dynamicformadd/salaryAccountForm -> blocked: false @ https://qa.devcodenzo.online/chunk-PRZU7O5F.js:2544
+[   50312ms] [LOG] ℹ️ fetchStorekeeperStore skipped — form is 'salaryAccountForm', not 'storetransferForm' @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:653
+[   50317ms] [LOG] ✅ Base Form Source Loaded @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:423
+[   50472ms] [WARNING] No menuType found in fetchedData. @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:492
+[   50476ms] [LOG] Create Form With Layouts!!! @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:456
+[   50490ms] [LOG] salaryAccountFormCalc is working on!!! @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:423
+[   50497ms] [LOG] ✅ Fetching sequence configuration... @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:423
+[   50500ms] [LOG] 👉 INSIDE fetchUniqueNumber 6ab0be93483788d7498a1d24 @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:423
+[   50654ms] [LOG] approvalWorkFlowData received: {companyId: null, _id: 6ab0c00cea5c32255b7b5291, mappingFormName: 6ab0be93483788d7498a1d24, rejectionFlow: Decrease Levels, isRecordsFiltered: false} @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:423
+[   81864ms] [WARNING] ⛔ dynamicFormConvert: employeeId is not a string, got: object PointerEvent @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:423
+[   90161ms] [WARNING] ⛔ dynamicFormConvert: employeeId is not a string, got: object PointerEvent @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:423
+[   90906ms] [LOG] fetch Employees For Salary Account @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:423
+[   90926ms] [LOG] ✅ Warning alert: Please fill the payable month. @ https://qa.devcodenzo.online/chunk-L6YN4LGC.js:0
+[   94613ms] [LOG] fetch Employees For Salary Account @ https://qa.devcodenzo.online/chunk-4ZTK2SPM.js:423
+[   94627ms] [LOG] ✅ Warning alert: Please fill the payable month. @ https://qa.devcodenzo.online/chunk-L6YN4LGC.js:0

@@ -1,0 +1,227 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e43]:
+    - banner [ref=e44]:
+      - generic [ref=e45]:
+        - link [ref=e49] [cursor=pointer]:
+          - /url: /crm
+          - img "logo" [ref=e50]
+        - generic [ref=e51]:
+          - link "" [ref=e53] [cursor=pointer]:
+            - /url: javascript:void(0);
+            - text: 
+          - generic [ref=e55]:
+            - link " 0" [ref=e56] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=e57]: 
+              - generic [ref=e58]: "0"
+            - text: 
+          - generic [ref=e59]:
+            - link "img AGM support 0000 IT Support Specialist" [ref=e60] [cursor=pointer]:
+              - /url: javascript:void(0);
+              - generic [ref=e61]:
+                - img "img" [ref=e63]
+                - generic [ref=e64]:
+                  - paragraph [ref=e65]: AGM support
+                  - generic [ref=e66]: "0000"
+                  - generic [ref=e67]: IT Support Specialist
+            - text:  
+    - complementary [ref=e68]:
+      - region "scrollable content" [ref=e73]:
+        - navigation [ref=e75]:
+          - generic [ref=e76] [cursor=pointer]
+          - list [ref=e79]:
+            - listitem [ref=e80]:
+              - link " Dashboard" [ref=e81] [cursor=pointer]:
+                - /url: /crm
+                - generic [ref=e82]: 
+                - generic [ref=e83]: Dashboard
+            - listitem [ref=e84]:
+              - link " Masters " [ref=e85] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e86]: 
+                - generic [ref=e87]: Masters
+                - generic [ref=e88]: 
+            - listitem [ref=e89]:
+              - link " Organization " [ref=e90] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e91]: 
+                - generic [ref=e92]: Organization
+                - generic [ref=e93]: 
+            - listitem [ref=e94]:
+              - link " Procurement " [ref=e95] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e96]: 
+                - generic [ref=e97]: Procurement
+                - generic [ref=e98]: 
+            - listitem [ref=e99]:
+              - link " HRMS " [ref=e100] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e101]: 
+                - generic [ref=e102]: HRMS
+                - generic [ref=e103]: 
+            - listitem [ref=e104]:
+              - link " Sales " [ref=e105] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e106]: 
+                - generic [ref=e107]: Sales
+                - generic [ref=e108]: 
+            - listitem [ref=e109]:
+              - link " Procurement " [ref=e110] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e111]: 
+                - generic [ref=e112]: Procurement
+                - generic [ref=e113]: 
+            - listitem [ref=e114]:
+              - link " Finance " [ref=e115] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e116]: 
+                - generic [ref=e117]: Finance
+                - generic [ref=e118]: 
+            - listitem [ref=e119]:
+              - link " Inventory " [ref=e120] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e121]: 
+                - generic [ref=e122]: Inventory
+                - generic [ref=e123]: 
+            - listitem [ref=e124]:
+              - link " Operations " [ref=e125] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e126]: 
+                - generic [ref=e127]: Operations
+                - generic [ref=e128]: 
+            - listitem [ref=e129]:
+              - link " Vehicle Management " [ref=e130] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e131]: 
+                - generic [ref=e132]: Vehicle Management
+                - generic [ref=e133]: 
+            - listitem [ref=e134]:
+              - link " Reports " [ref=e135] [cursor=pointer]:
+                - /url: javascript:void(0);
+                - generic [ref=e136]: 
+                - generic [ref=e137]: Reports
+                - generic [ref=e138]: 
+          - generic [ref=e139] [cursor=pointer]
+    - generic [ref=e144]:
+      - paragraph [ref=e147]: Welcome back, AGM!!!
+      - generic [ref=e149]:
+        - generic [ref=e152]:
+          - generic [ref=e157]:
+            - generic [ref=e158]: INCOME AND EXPENSE
+            - generic [ref=e159]: "0.00"
+            - generic [ref=e160]:
+              - text: Net Profit |
+              - generic [ref=e161]:
+                - text: Last transaction on
+                - strong [ref=e162]: ...
+            - generic [ref=e163]: From Current Year
+          - generic [ref=e165]:
+            - generic [ref=e166]: Income
+            - generic [ref=e167]: "0.00"
+          - generic [ref=e168]:
+            - generic [ref=e169]: Expense
+            - generic [ref=e170]: "0.00"
+        - generic [ref=e173]:
+          - generic [ref=e178]:
+            - generic [ref=e179]: TOTAL INVOICED (FY)
+            - generic [ref=e180]: "0.00"
+            - generic [ref=e181]: Financial Year
+          - generic [ref=e182]:
+            - generic [ref=e183]:
+              - generic [ref=e184]: "0.00"
+              - generic [ref=e185]: Received
+            - generic [ref=e186]:
+              - generic [ref=e187]: "0.00"
+              - generic [ref=e188]: Receivable
+        - generic [ref=e192]:
+          - generic [ref=e197]:
+            - generic [ref=e198]: TOTAL PURCHASES (FY)
+            - generic [ref=e199]: "0.00"
+            - generic [ref=e200]: Financial Year
+          - generic [ref=e201]:
+            - generic [ref=e202]:
+              - generic [ref=e203]: "0.00"
+              - generic [ref=e204]: Paid
+            - generic [ref=e205]:
+              - generic [ref=e206]: "0.00"
+              - generic [ref=e207]: Payable (Pending)
+        - generic [ref=e211]:
+          - img [ref=e215]:
+            - generic [ref=e218]:
+              - generic "2.0" [ref=e219]
+              - generic "1.6" [ref=e220]
+              - generic "1.2" [ref=e221]
+              - generic "0.8" [ref=e222]
+              - generic "0.4" [ref=e223]
+              - generic "0.0" [ref=e224]
+            - generic [ref=e230]:
+              - generic "1" [ref=e231]
+              - generic "3" [ref=e232]
+              - generic "5" [ref=e233]
+              - generic "8" [ref=e234]
+              - generic "10" [ref=e235]
+              - generic "12" [ref=e236]
+          - generic [ref=e237]:
+            - generic [ref=e238]: Monthly Sales
+            - generic [ref=e239]: Monthly sales Performance
+        - generic [ref=e242]:
+          - img [ref=e246]:
+            - generic [ref=e249]:
+              - generic "5" [ref=e250]
+              - generic "4" [ref=e251]
+              - generic "3" [ref=e252]
+              - generic "2" [ref=e253]
+              - generic "1" [ref=e254]
+              - generic "0" [ref=e255]
+            - generic [ref=e272]:
+              - generic "1" [ref=e273]
+              - generic "2" [ref=e274]
+              - generic "3" [ref=e275]
+              - generic "4" [ref=e276]
+              - generic "5" [ref=e277]
+              - generic "6" [ref=e278]
+              - generic "7" [ref=e279]
+              - generic "8" [ref=e280]
+              - generic "9" [ref=e281]
+              - generic "10" [ref=e282]
+          - generic [ref=e283]:
+            - generic [ref=e284]: Daily Sales
+            - generic [ref=e285]: Last 10 Days sales Performance
+        - generic [ref=e288]:
+          - generic [ref=e293]:
+            - generic [ref=e294]: Total Sales
+            - generic [ref=e295]: "0.00"
+          - generic [ref=e297]:
+            - generic [ref=e298]: "0"
+            - generic [ref=e299]: Invoice Raised
+        - generic [ref=e302]:
+          - generic [ref=e307]:
+            - generic [ref=e308]: Total Expenses
+            - generic [ref=e309]: "0.00"
+          - generic [ref=e311]:
+            - generic [ref=e312]: "0"
+            - generic [ref=e313]: Total Expenses Recorded
+        - generic [ref=e323]:
+          - generic [ref=e328]:
+            - generic [ref=e329]: Payments Received
+            - generic [ref=e330]: "0.00"
+          - generic [ref=e332]:
+            - generic [ref=e333]: "0"
+            - generic [ref=e334]: Total Transactions
+        - generic [ref=e337]:
+          - generic [ref=e342]:
+            - generic [ref=e343]: Latest Invoice Value
+            - generic [ref=e344]: "0.00"
+          - generic [ref=e348]:
+            - text: "Invoice Date :"
+            - strong [ref=e349]: "--"
+    - contentinfo [ref=e351]:
+      - generic [ref=e353]:
+        - text: InfinityCore ERP System - V.0.8. Powered by
+        - img "logo" [ref=e354]
+        - link "Codenzo Infotech" [ref=e355] [cursor=pointer]:
+          - /url: https://codenzogroup.com/
+    - generic: 
+  - generic [ref=e356]:
+    - generic "Success" [ref=e357]
+    - alert "Login successful" [ref=e358]
