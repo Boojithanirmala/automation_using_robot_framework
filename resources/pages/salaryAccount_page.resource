@@ -66,7 +66,8 @@ Open Salary Account Payable Month Picker
 Set Salary Account Picker Year
     [Documentation]    Types the year into the picker's year field.
     [Arguments]    ${year}
-    Fill Text    ${SALARY_ACCOUNT_MONTH_PICKER_YEAR}    ${year}
+    Click    ${SALARY_ACCOUNT_MONTH_PICKER_YEAR}
+    Type Text    ${SALARY_ACCOUNT_MONTH_PICKER_YEAR}    ${year}    clear=True
 
 Get Salary Account Picker Year
     ${year}=    Get Property    ${SALARY_ACCOUNT_MONTH_PICKER_YEAR}    value

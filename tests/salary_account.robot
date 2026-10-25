@@ -2,18 +2,24 @@
 Documentation     Salary Account form test suite.
 Library           Browser
 Resource          ../resources/common.resource
-Resource            ../resources/pages/login_page.resource
-Resource            ../resources/pages/dashboard.resource
+Resource          ../resources/pages/login_page.resource
+Resource          ../resources/pages/dashboard.resource
 Resource          ../resources/components/dropdown.resource
 Resource          ../resources/components/common_form.resource
 Resource          ../resources/pages/salaryAccount_page.resource
 
-Suite Setup         Open Application And Login
-Suite Teardown      Close Browser
-Test Setup          Open Salary Account Page
-Test Teardown       Close Test Context
+# No Suite Setup: "Open Fresh Page" starts the page for every test.
+# If your payslip suite has a Suite Setup (for example one that starts the browser
+# with headless=False), copy that same line here.
+Suite Teardown    Close Browser
+Test Setup        Open Salary Account Form
+Test Teardown     Close Test Context
+
 
 *** Variables ***
+# TODO: copy the real path from the browser address bar of the Salary Account form.
+${SALARY_ACCOUNT_URL}         /dynamicformadd/salaryAccountForm
+
 # --- Month that HAS payslips ----------------------------------------------
 ${MONTH}                      May
 ${YEAR}                       2027
@@ -45,12 +51,6 @@ ${EMPLOYEE_2_NET_SALARY}      500.00
 ${EMPLOYEE_3}                 0350 | AHMED SALEM A AL NASHAMA
 ${EMPLOYEE_3_NET_SALARY}      1,000.00
 
-*** Keywords ***
-Open Payslip Form
-    Open Fresh Page
-    Login With Credentials    ${VALID_USERNAME}    ${VALID_PASSWORD}
-    Dashboard Should Be Open
-    Go To Page    /dynamicformadd/payslipForm
 
 *** Test Cases ***
 # ===========================================================================
@@ -147,14 +147,14 @@ Verify Only One Payslip Can Be Selected
 # Auto populated fields
 # ===========================================================================
 Verify Details Are Auto Populated After Selecting Payslip
-    [Tags]    auto_populate    smoke
+    [Tags]    auto_populate    smoke    remarks
     Fill Salary Account Form    ${MONTH}    ${YEAR}    ${PAYSLIP_NO}
     Salary Account Salary Groups Should Be Selected    @{EXPECTED_SALARY_GROUPS}
     Salary Account Payment Through Should Be    ${EXPECTED_PAYMENT_THROUGH}
     Salary Account Remarks Should Be    ${EXPECTED_REMARKS}
 
 Verify Auto Populated Fields Are Not Editable
-    [Tags]    auto_populate
+    [Tags]    auto_populate    remarks
     Fill Salary Account Form    ${MONTH}    ${YEAR}    ${PAYSLIP_NO}
     Salary Account Auto Populated Fields Should Be Non Editable
 
@@ -223,13 +223,10 @@ Verify Saved Payslip Is Not Listed Again For The Same Month
 
 
 *** Keywords ***
-Open Application And Login
-    [Documentation]    Replace with your project's existing login keyword.
-    New Browser    chromium    headless=False
-    New Context    viewport={'width': 1920, 'height': 1080}
-    New Page    ${BASE_URL}
-
-Open Salary Account Page
-    [Documentation]    Replace with your project's navigation keyword / URL.
-    Go To    ${BASE_URL}/salary-account/add
+Open Salary Account Form
+    [Documentation]    Same flow as the payslip suite: fresh page, login, dashboard, open the form.
+    Open Fresh Page
+    Login With Credentials    ${VALID_USERNAME}    ${VALID_PASSWORD}
+    Dashboard Should Be Open
+    Go To Page    ${SALARY_ACCOUNT_URL}
     Salary Account Form Should Be Visible

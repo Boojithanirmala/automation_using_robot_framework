@@ -10,14 +10,24 @@ Library           String
 
 
 *** Variables ***
+# --- Dropdown panel & options (global, rendered outside ng-select) ----------
 ${DROPDOWN_PANEL}                 css=ng-dropdown-panel[role="listbox"]
+${DROPDOWN_PANEL_ITEMS}           css=ng-dropdown-panel .ng-dropdown-panel-items
+${DROPDOWN_PANEL_HEADER}          css=ng-dropdown-panel .ng-dropdown-header
+${DROPDOWN_PANEL_FOOTER}          css=ng-dropdown-panel .ng-dropdown-footer
 ${DROPDOWN_OPTION}                css=ng-dropdown-panel [role="option"]
 ${DROPDOWN_ENABLED_OPTION}        css=ng-dropdown-panel [role="option"]:not(.ng-option-disabled)
 ${DROPDOWN_DISABLED_OPTION}       css=ng-dropdown-panel [role="option"].ng-option-disabled
 ${DROPDOWN_SELECTED_OPTION}       css=ng-dropdown-panel [role="option"].ng-option-selected
 ${DROPDOWN_MARKED_OPTION}         css=ng-dropdown-panel [role="option"].ng-option-marked
 ${DROPDOWN_NO_ITEMS_MESSAGE}      css=ng-dropdown-panel .ng-option-disabled:has-text("No items found")
+${DROPDOWN_SELECT_ALL}            css=ng-dropdown-panel :text-is("Select All"), ng-dropdown-panel .select-all
+${DROPDOWN_SELECT_ALL_CHECKBOX}   css=ng-dropdown-panel :has-text("Select All") input[type="checkbox"], ng-dropdown-panel input[type="checkbox"]
+${DROPDOWN_UNSELECT_ALL}          css=ng-dropdown-panel :text-is("Unselect All"), ng-dropdown-panel :text-is("Deselect All")
+${DROPDOWN_TAG_LABEL}             css=ng-dropdown-panel .ng-tag-label
 
+# --- Inner ng-select elements (scoped to dropdown locator) ------------------
+${DROPDOWN_CONTAINER}             .ng-select-container
 ${DROPDOWN_INPUT}                 input
 ${DROPDOWN_COMBOBOX}              [role="combobox"]
 ${DROPDOWN_VALUE}                 .ng-value
@@ -27,11 +37,13 @@ ${DROPDOWN_PLACEHOLDER}           .ng-placeholder
 ${DROPDOWN_CLEAR_BUTTON}          .ng-clear-wrapper
 ${DROPDOWN_ARROW}                 .ng-arrow-wrapper
 ${DROPDOWN_MORE_VALUE}            .ng-value:has-text("More")
+${DROPDOWN_OPTION_CHECKBOX}       input[type="checkbox"]
+${DROPDOWN_LOADING_SPINNER}       .ng-spinner-loader
 
 
 *** Keywords ***
 # ===========================================================================
-# 1. Open / close
+# 1. Open / close / focus
 # ===========================================================================
 Open Dropdown
     [Arguments]    ${dropdown_locator}
@@ -62,10 +74,23 @@ Close Dropdown
     Press Keys    ${dropdown_locator} >> ${DROPDOWN_INPUT}    Escape
     Wait For Elements State    ${DROPDOWN_PANEL}    hidden
 
-# Close Dropdown By Clicking Outside
-#     [Documentation]    Clicks the top-left corner of the page. Change the position if something is there.
-#     Click    css=body    position_x=1    position_y=1
-#     Wait For Elements State    ${DROPDOWN_PANEL}    hidden
+Ensure Dropdown Is Closed
+    [Documentation]    Closes the dropdown only when it is open.
+    [Arguments]    ${dropdown_locator}
+    ${expanded}=    Get Attribute    ${dropdown_locator} >> ${DROPDOWN_COMBOBOX}    aria-expanded
+    IF    '${expanded}' == 'true'
+        Close Dropdown    ${dropdown_locator}
+    END
+
+Close Dropdown By Clicking Outside
+    [Documentation]    Clicks outside the dropdown (default: body top-left) to blur and close the panel.
+    [Arguments]    ${outside_locator}=css=body
+    Click    ${outside_locator}    position={"x": 1, "y": 1}
+    Wait For Elements State    ${DROPDOWN_PANEL}    hidden
+
+Focus Dropdown
+    [Arguments]    ${dropdown_locator}
+    Focus    ${dropdown_locator} >> ${DROPDOWN_INPUT}
 
 Dropdown Should Be Open
     [Arguments]    ${dropdown_locator}
@@ -77,12 +102,20 @@ Dropdown Should Be Closed
     Get Attribute    ${dropdown_locator} >> ${DROPDOWN_COMBOBOX}    aria-expanded    ==    false
     Wait For Elements State    ${DROPDOWN_PANEL}    hidden
 
+Dropdown Should Be Focused
+    [Arguments]    ${dropdown_locator}
+    Dropdown Should Have Class    ${dropdown_locator}    ng-select-focused
+
+Dropdown Should Not Be Focused
+    [Arguments]    ${dropdown_locator}
+    Dropdown Should Not Have Class    ${dropdown_locator}    ng-select-focused
+
 # ===========================================================================
-# 2. Select (single and multi)
+# 2. Select / Deselect (single and multi)
 # ===========================================================================
 Select Dropdown Option
     [Arguments]    ${dropdown_locator}    ${option_text}
-    Open Dropdown    ${dropdown_locator}
+    Ensure Dropdown Is Open    ${dropdown_locator}
     Click    ${DROPDOWN_ENABLED_OPTION}:has-text("${option_text}")
 
 Select Dropdown Option By Search
@@ -106,15 +139,71 @@ Select Multiple Dropdown Options
     Close Dropdown    ${dropdown_locator}
 
 Select All Dropdown Options
-    [Documentation]    Multi select: selects every enabled option.
+    [Documentation]    Multi select: clicks "Select All" if available in panel, otherwise selects every option.
     [Arguments]    ${dropdown_locator}
-    ${options}=    Get Dropdown Options    ${dropdown_locator}
-    Select Multiple Dropdown Options    ${dropdown_locator}    @{options}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    ${has_select_all}=    Get Element Count    ${DROPDOWN_SELECT_ALL}
+    IF    ${has_select_all} > 0
+        Click    ${DROPDOWN_SELECT_ALL}
+        Close Dropdown    ${dropdown_locator}
+    ELSE
+        ${options}=    Get Dropdown Options    ${dropdown_locator}
+        Select Multiple Dropdown Options    ${dropdown_locator}    @{options}
+    END
+
+Click Dropdown Select All
+    [Documentation]    Multi select: opens dropdown if needed and clicks the "Select All" header / option.
+    [Arguments]    ${dropdown_locator}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    Click    ${DROPDOWN_SELECT_ALL}
+
+Click Dropdown Deselect All
+    [Documentation]    Multi select: clicks "Unselect All" / "Select All" to deselect all options.
+    [Arguments]    ${dropdown_locator}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    ${has_unselect}=    Get Element Count    ${DROPDOWN_UNSELECT_ALL}
+    IF    ${has_unselect} > 0
+        Click    ${DROPDOWN_UNSELECT_ALL}
+    ELSE
+        Click    ${DROPDOWN_SELECT_ALL}
+    END
+
+Deselect Dropdown Option
+    [Documentation]    Multi select: unselects an option by clicking it in the open panel.
+    [Arguments]    ${dropdown_locator}    ${option_text}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    Click    ${DROPDOWN_SELECTED_OPTION}:has-text("${option_text}")
+
+Deselect Dropdown Option By Search
+    [Documentation]    Multi select: searches and unselects the option in the open panel.
+    [Arguments]    ${dropdown_locator}    ${option_text}    ${search_text}=${option_text}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    Search Dropdown Options    ${dropdown_locator}    ${search_text}
+    Click    ${DROPDOWN_SELECTED_OPTION}:has-text("${option_text}")
+
+Deselect Multiple Dropdown Options
+    [Documentation]    Multi select: searches and deselects every listed option.
+    [Arguments]    ${dropdown_locator}    @{option_texts}
+    FOR    ${option_text}    IN    @{option_texts}
+        Deselect Dropdown Option By Search    ${dropdown_locator}    ${option_text}
+    END
+    Close Dropdown    ${dropdown_locator}
+
+Deselect All Dropdown Options
+    [Documentation]    Multi select: deselects all options using clear button or panel deselect control.
+    [Arguments]    ${dropdown_locator}
+    ${has_clear}=    Get Element Count    ${dropdown_locator} >> ${DROPDOWN_CLEAR_BUTTON}
+    IF    ${has_clear} > 0
+        Clear Dropdown Selection    ${dropdown_locator}
+    ELSE
+        Click Dropdown Deselect All    ${dropdown_locator}
+        Close Dropdown    ${dropdown_locator}
+    END
 
 Select Dropdown Option By Index
     [Documentation]    Index starts at 0 and ignores the disabled placeholder row. -1 selects the last option.
     [Arguments]    ${dropdown_locator}    ${index}=0
-    Open Dropdown    ${dropdown_locator}
+    Ensure Dropdown Is Open    ${dropdown_locator}
     Click    ${DROPDOWN_ENABLED_OPTION} >> nth=${index}
 
 Select First Dropdown Option
@@ -129,7 +218,7 @@ Select Dropdown Option Using Keyboard
     [Documentation]    Opens the dropdown, presses ArrowDown the given number of times, then Enter.
     ...                With 0 presses it selects the first (highlighted) option.
     [Arguments]    ${dropdown_locator}    ${arrow_down_count}=0
-    Open Dropdown    ${dropdown_locator}
+    Ensure Dropdown Is Open    ${dropdown_locator}
     FOR    ${index}    IN RANGE    ${arrow_down_count}
         Press Keys    ${dropdown_locator} >> ${DROPDOWN_INPUT}    ArrowDown
     END
@@ -164,6 +253,11 @@ Dropdown Search Text Should Be Empty
     ${text}=    Get Dropdown Search Text    ${dropdown_locator}
     Should Be Empty    ${text}
 
+Dropdown Search Text Should Be
+    [Arguments]    ${dropdown_locator}    ${expected_text}
+    ${text}=    Get Dropdown Search Text    ${dropdown_locator}
+    Should Be Equal    ${text}    ${expected_text}
+
 Dropdown Search Should Show Option
     [Arguments]    ${dropdown_locator}    ${search_text}    ${expected_option}
     Ensure Dropdown Is Open    ${dropdown_locator}
@@ -197,6 +291,9 @@ Dropdown No Items Message Should Be Visible
     [Documentation]    Use while the panel is open after a search with no match.
     Wait For Elements State    ${DROPDOWN_NO_ITEMS_MESSAGE}    visible
 
+Dropdown No Items Message Should Not Be Visible
+    Wait For Elements State    ${DROPDOWN_NO_ITEMS_MESSAGE}    hidden
+
 # ===========================================================================
 # 4. Read / verify the options
 # ===========================================================================
@@ -206,6 +303,14 @@ Dropdown Options Should Be Visible
     FOR    ${option}    IN    @{expected_options}
         ${count}=    Get Element Count    ${DROPDOWN_OPTION}:has-text("${option}")
         Should Be True    ${count} > 0
+    END
+
+Dropdown Options Should Not Be Visible
+    [Documentation]    Checks options are not present in the open panel.
+    [Arguments]    @{unexpected_options}
+    FOR    ${option}    IN    @{unexpected_options}
+        ${count}=    Get Element Count    ${DROPDOWN_OPTION}:has-text("${option}")
+        Should Be Equal As Integers    ${count}    0
     END
 
 Get Visible Dropdown Options
@@ -223,14 +328,11 @@ Get Dropdown Options
     [Documentation]    Opens the dropdown if needed, returns the enabled option texts and closes it.
     ...                Works when the list is empty (the panel may only hold the disabled placeholder).
     [Arguments]    ${dropdown_locator}
-    ${expanded}=    Get Attribute    ${dropdown_locator} >> ${DROPDOWN_COMBOBOX}    aria-expanded
-    IF    '${expanded}' != 'true'
-        Click    ${dropdown_locator}
-    END
+    Ensure Dropdown Is Open    ${dropdown_locator}
     Run Keyword And Ignore Error
     ...    Wait For Elements State    ${DROPDOWN_PANEL}    visible    timeout=3s
     ${options}=    Get Visible Dropdown Options
-    Press Keys    ${dropdown_locator} >> ${DROPDOWN_INPUT}    Escape
+    Close Dropdown    ${dropdown_locator}
     RETURN    ${options}
 
 Get Dropdown Option Count
@@ -263,6 +365,11 @@ Dropdown Options Should Be Empty
     ${options}=    Get Dropdown Options    ${dropdown_locator}
     Should Be Empty    ${options}
 
+Dropdown Options Should Not Be Empty
+    [Arguments]    ${dropdown_locator}
+    ${options}=    Get Dropdown Options    ${dropdown_locator}
+    Should Not Be Empty    ${options}
+
 Dropdown Options Should Be
     [Documentation]    Exact list, same order.
     [Arguments]    ${dropdown_locator}    @{expected_options}
@@ -270,11 +377,16 @@ Dropdown Options Should Be
     Lists Should Be Equal    ${options}    ${expected_options}
 
 Dropdown Options Should Be Sorted
-    [Documentation]    Ascending, case insensitive.
-    [Arguments]    ${dropdown_locator}
+    [Documentation]    Ascending (default) or descending, case insensitive.
+    [Arguments]    ${dropdown_locator}    ${order}=ascending
     ${options}=    Get Dropdown Options    ${dropdown_locator}
-    ${is_sorted}=    Evaluate    $options == sorted($options, key=str.lower)
-    Should Be True    ${is_sorted}    Options are not sorted: ${options}
+    IF    '${order.lower()}' == 'descending'
+        ${is_sorted}=    Evaluate    $options == sorted($options, key=str.lower, reverse=True)
+        Should Be True    ${is_sorted}    Options are not sorted descending: ${options}
+    ELSE
+        ${is_sorted}=    Evaluate    $options == sorted($options, key=str.lower)
+        Should Be True    ${is_sorted}    Options are not sorted ascending: ${options}
+    END
 
 Dropdown Options Should Not Have Duplicates
     [Arguments]    ${dropdown_locator}
@@ -291,6 +403,35 @@ Dropdown Placeholder Option Should Be
     Close Dropdown    ${dropdown_locator}
     Should Be Equal    ${text}    ${expected_text}
 
+Dropdown Option Should Exist
+    [Documentation]    Opens dropdown if needed and checks that the option exists in the list.
+    [Arguments]    ${dropdown_locator}    ${option_text}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    Wait For Elements State    ${DROPDOWN_OPTION}:has-text("${option_text}")    visible
+    Close Dropdown    ${dropdown_locator}
+
+Dropdown Option Should Not Exist
+    [Documentation]    Opens dropdown if needed and checks that the option does not exist in the list.
+    [Arguments]    ${dropdown_locator}    ${option_text}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    ${count}=    Get Element Count    ${DROPDOWN_OPTION}:has-text("${option_text}")
+    Should Be Equal As Integers    ${count}    0
+    Close Dropdown    ${dropdown_locator}
+
+Dropdown Option Should Be Enabled
+    [Documentation]    Checks that a specific option in the panel is enabled.
+    [Arguments]    ${dropdown_locator}    ${option_text}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    Wait For Elements State    ${DROPDOWN_ENABLED_OPTION}:has-text("${option_text}")    visible
+    Close Dropdown    ${dropdown_locator}
+
+Dropdown Option Should Be Disabled
+    [Documentation]    Checks that a specific option in the panel is disabled.
+    [Arguments]    ${dropdown_locator}    ${option_text}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    Wait For Elements State    ${DROPDOWN_DISABLED_OPTION}:has-text("${option_text}")    visible
+    Close Dropdown    ${dropdown_locator}
+
 Dropdown Option Should Be Marked As Selected
     [Documentation]    Checks the highlight on the option inside the open panel.
     [Arguments]    ${dropdown_locator}    ${option_text}
@@ -298,9 +439,72 @@ Dropdown Option Should Be Marked As Selected
     Wait For Elements State    ${DROPDOWN_SELECTED_OPTION}:has-text("${option_text}")    visible
     Close Dropdown    ${dropdown_locator}
 
+Dropdown Option Should Not Be Marked As Selected
+    [Documentation]    Checks that the option inside the open panel is not marked as selected.
+    [Arguments]    ${dropdown_locator}    ${option_text}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    ${count}=    Get Element Count    ${DROPDOWN_SELECTED_OPTION}:has-text("${option_text}")
+    Should Be Equal As Integers    ${count}    0
+    Close Dropdown    ${dropdown_locator}
+
+Dropdown Option Checkbox Should Be Checked
+    [Documentation]    Multi select: checks that the checkbox inside the option is checked.
+    [Arguments]    ${dropdown_locator}    ${option_text}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    Get Checkbox State    ${DROPDOWN_OPTION}:has-text("${option_text}") >> ${DROPDOWN_OPTION_CHECKBOX}    ==    checked
+    Close Dropdown    ${dropdown_locator}
+
+Dropdown Option Checkbox Should Not Be Checked
+    [Documentation]    Multi select: checks that the checkbox inside the option is unchecked.
+    [Arguments]    ${dropdown_locator}    ${option_text}
+    Ensure Dropdown Is Open    ${dropdown_locator}
+    Get Checkbox State    ${DROPDOWN_OPTION}:has-text("${option_text}") >> ${DROPDOWN_OPTION_CHECKBOX}    ==    unchecked
+    Close Dropdown    ${dropdown_locator}
+
+Scroll Dropdown To Option
+    [Documentation]    Scrolls the open panel until the given option is visible (for virtual scroll).
+    [Arguments]    ${option_text}
+    Scroll To Element    ${DROPDOWN_OPTION}:has-text("${option_text}")
+    Wait For Elements State    ${DROPDOWN_OPTION}:has-text("${option_text}")    visible
+
+Scroll Dropdown Panel To Bottom
+    [Documentation]    Scrolls the open panel to bottom (useful for lazy loaded options).
+    Scroll By    ${DROPDOWN_PANEL_ITEMS}    vertical=100%
+
+Scroll Dropdown Panel To Top
+    [Documentation]    Scrolls the open panel back to top.
+    Scroll By    ${DROPDOWN_PANEL_ITEMS}    vertical=0
+
 # ===========================================================================
 # 5. Selected value(s)
 # ===========================================================================
+Get Dropdown Selected Value
+    [Documentation]    Returns the text of the selected value for single-select dropdowns (or empty string if none).
+    [Arguments]    ${dropdown_locator}
+    ${count}=    Get Element Count    ${dropdown_locator} >> ${DROPDOWN_VALUE_LABEL}
+    IF    ${count} == 0
+        RETURN    ${EMPTY}
+    END
+    ${text}=    Get Text    ${dropdown_locator} >> ${DROPDOWN_VALUE_LABEL} >> nth=0
+    ${text}=    Strip String    ${text}
+    RETURN    ${text}
+
+Dropdown Selected Value Should Be
+    [Documentation]    Exact text check for single-select dropdown.
+    [Arguments]    ${dropdown_locator}    ${expected_text}
+    ${actual}=    Get Dropdown Selected Value    ${dropdown_locator}
+    Should Be Equal    ${actual}    ${expected_text}
+
+Dropdown Selected Value Should Contain
+    [Arguments]    ${dropdown_locator}    ${expected_substring}
+    ${actual}=    Get Dropdown Selected Value    ${dropdown_locator}
+    Should Contain    ${actual}    ${expected_substring}
+
+Dropdown Selected Value Should Not Contain
+    [Arguments]    ${dropdown_locator}    ${unexpected_substring}
+    ${actual}=    Get Dropdown Selected Value    ${dropdown_locator}
+    Should Not Contain    ${actual}    ${unexpected_substring}
+
 Dropdown Should Have Selected Value
     [Arguments]    ${dropdown_locator}    ${expected_text}
     Wait For Elements State    ${dropdown_locator} >> ${DROPDOWN_VALUE_LABEL}:has-text("${expected_text}")    visible
@@ -357,6 +561,19 @@ Get Dropdown More Values Count
     ${number}=    Evaluate    int(re.search(r'\\d+', $text).group())    modules=re
     RETURN    ${number}
 
+Dropdown More Values Count Should Be
+    [Arguments]    ${dropdown_locator}    ${expected_count}
+    ${count}=    Get Dropdown More Values Count    ${dropdown_locator}
+    Should Be Equal As Integers    ${count}    ${expected_count}
+
+Dropdown More Values Chip Should Be Visible
+    [Arguments]    ${dropdown_locator}
+    Wait For Elements State    ${dropdown_locator} >> ${DROPDOWN_MORE_VALUE}    visible
+
+Dropdown More Values Chip Should Not Be Visible
+    [Arguments]    ${dropdown_locator}
+    Wait For Elements State    ${dropdown_locator} >> ${DROPDOWN_MORE_VALUE}    hidden
+
 Get Dropdown Total Selected Count
     [Documentation]    Shown chips plus the hidden "+N More..." count.
     [Arguments]    ${dropdown_locator}
@@ -370,9 +587,20 @@ Dropdown Total Selected Count Should Be
     ${total}=    Get Dropdown Total Selected Count    ${dropdown_locator}
     Should Be Equal As Integers    ${total}    ${expected_count}
 
+Get Dropdown Placeholder
+    [Arguments]    ${dropdown_locator}
+    ${text}=    Get Text    ${dropdown_locator} >> ${DROPDOWN_PLACEHOLDER}
+    ${text}=    Strip String    ${text}
+    RETURN    ${text}
+
 Dropdown Placeholder Should Be
     [Arguments]    ${dropdown_locator}    ${expected_text}
     Get Text    ${dropdown_locator} >> ${DROPDOWN_PLACEHOLDER}    ==    ${expected_text}
+
+Dropdown Placeholder Should Contain
+    [Arguments]    ${dropdown_locator}    ${expected_text}
+    ${actual}=    Get Dropdown Placeholder    ${dropdown_locator}
+    Should Contain    ${actual}    ${expected_text}
 
 Dropdown Placeholder Should Not Be Visible
     [Arguments]    ${dropdown_locator}
@@ -384,7 +612,7 @@ Dropdown Placeholder Should Not Be Visible
 Remove Selected Value
     [Arguments]    ${dropdown_locator}    ${value_text}
     Click
-    ...    ${dropdown_locator} >> ${DROPDOWN_VALUE}:has(${DROPDOWN_VALUE_LABEL}:has-text("${value_text}")) ${DROPDOWN_VALUE_REMOVE_ICON}
+    ...    ${dropdown_locator} >> ${DROPDOWN_VALUE}:has(${DROPDOWN_VALUE_LABEL}:has-text("${value_text}")) >> ${DROPDOWN_VALUE_REMOVE_ICON}
 
 Remove Selected Values
     [Arguments]    ${dropdown_locator}    @{value_texts}
@@ -406,6 +634,14 @@ Clear Dropdown Selection
     Click    ${dropdown_locator} >> ${DROPDOWN_CLEAR_BUTTON}
     Dropdown Should Have No Selected Value    ${dropdown_locator}
 
+Ensure Dropdown Selection Is Cleared
+    [Documentation]    Clears selection if any value is selected; does nothing if already empty.
+    [Arguments]    ${dropdown_locator}
+    ${count}=    Get Element Count    ${dropdown_locator} >> ${DROPDOWN_VALUE_LABEL}
+    IF    ${count} > 0
+        Clear Dropdown Selection    ${dropdown_locator}
+    END
+
 Dropdown Clear Button Should Be Visible
     [Arguments]    ${dropdown_locator}
     Hover    ${dropdown_locator}
@@ -417,19 +653,19 @@ Dropdown Clear Button Should Not Be Visible
     Wait For Elements State    ${dropdown_locator} >> ${DROPDOWN_CLEAR_BUTTON}    hidden
 
 # ===========================================================================
-# 7. State (enabled, disabled, invalid, loading, type)
+# 7. State (enabled, disabled, invalid, required, loading, type)
 # ===========================================================================
 Dropdown Should Have Class
     [Documentation]    Checks a class on the ng-select element itself.
     [Arguments]    ${dropdown_locator}    ${class_name}
     ${classes}=    Get Classes    ${dropdown_locator}
-    ${found}=    Evaluate    $class_name in str($classes).replace("'", " ").replace(",", " ").split()
+    ${found}=    Evaluate    $class_name in [c for item in $classes for c in item.split()]
     Should Be True    ${found}    ${dropdown_locator} does not have class ${class_name}. Classes: ${classes}
 
 Dropdown Should Not Have Class
     [Arguments]    ${dropdown_locator}    ${class_name}
     ${classes}=    Get Classes    ${dropdown_locator}
-    ${found}=    Evaluate    $class_name in str($classes).replace("'", " ").replace(",", " ").split()
+    ${found}=    Evaluate    $class_name in [c for item in $classes for c in item.split()]
     Should Not Be True    ${found}    ${dropdown_locator} has class ${class_name}
 
 Dropdown Should Be Visible
@@ -457,6 +693,37 @@ Dropdown Should Be Valid
     [Arguments]    ${dropdown_locator}
     Dropdown Should Not Have Class    ${dropdown_locator}    ng-invalid
 
+Dropdown Should Be Required
+    [Documentation]    Checks if the dropdown or its inner combobox/input has required attribute or aria-required.
+    [Arguments]    ${dropdown_locator}
+    ${has_required_attr}=    Get Element Count    ${dropdown_locator}[required], ${dropdown_locator} >> input[required]
+    ${aria_required}=    Get Attribute    ${dropdown_locator} >> ${DROPDOWN_COMBOBOX}    aria-required
+    ${is_required}=    Evaluate    ${has_required_attr} > 0 or '${aria_required}' == 'true'
+    Should Be True    ${is_required}    Dropdown ${dropdown_locator} is not marked as required.
+
+Dropdown Should Not Be Required
+    [Arguments]    ${dropdown_locator}
+    ${has_required_attr}=    Get Element Count    ${dropdown_locator}[required], ${dropdown_locator} >> input[required]
+    ${aria_required}=    Get Attribute    ${dropdown_locator} >> ${DROPDOWN_COMBOBOX}    aria-required
+    ${is_required}=    Evaluate    ${has_required_attr} > 0 or '${aria_required}' == 'true'
+    Should Not Be True    ${is_required}    Dropdown ${dropdown_locator} is marked as required.
+
+Dropdown Should Be Searchable
+    [Arguments]    ${dropdown_locator}
+    Dropdown Should Have Class    ${dropdown_locator}    ng-select-searchable
+
+Dropdown Should Not Be Searchable
+    [Arguments]    ${dropdown_locator}
+    Dropdown Should Not Have Class    ${dropdown_locator}    ng-select-searchable
+
+Dropdown Should Be Clearable
+    [Arguments]    ${dropdown_locator}
+    Dropdown Should Have Class    ${dropdown_locator}    ng-select-clearable
+
+Dropdown Should Not Be Clearable
+    [Arguments]    ${dropdown_locator}
+    Dropdown Should Not Have Class    ${dropdown_locator}    ng-select-clearable
+
 Dropdown Should Be Multi Select
     [Arguments]    ${dropdown_locator}
     Dropdown Should Have Class    ${dropdown_locator}    ng-select-multiple
@@ -468,6 +735,10 @@ Dropdown Should Be Single Select
 Dropdown Should Be Loading
     [Arguments]    ${dropdown_locator}
     Dropdown Should Have Class    ${dropdown_locator}    ng-select-loading
+
+Dropdown Should Not Be Loading
+    [Arguments]    ${dropdown_locator}
+    Dropdown Should Not Have Class    ${dropdown_locator}    ng-select-loading
 
 Wait Until Dropdown Is Loaded
     [Documentation]    For dropdowns that load their options from the server.
@@ -488,14 +759,22 @@ Wait Until Dropdown Option Is Available
     ...    Dropdown Options Should Contain    ${dropdown_locator}    ${option_text}
 
 # ===========================================================================
-# 8. Keyboard
+# 8. Keyboard & Highlights
 # ===========================================================================
 Press Key In Dropdown
     [Documentation]    Any Playwright key, e.g. ArrowDown, ArrowUp, Enter, Escape, Tab, Backspace.
     [Arguments]    ${dropdown_locator}    ${key}
     Press Keys    ${dropdown_locator} >> ${DROPDOWN_INPUT}    ${key}
 
+Get Dropdown Highlighted Option
+    [Documentation]    Returns the text of the option marked by keyboard navigation.
+    ${text}=    Get Text    ${DROPDOWN_MARKED_OPTION}
+    ${text}=    Strip String    ${text}
+    RETURN    ${text}
+
 Dropdown Highlighted Option Should Be
     [Documentation]    The option marked by the keyboard (ng-option-marked) in the open panel.
     [Arguments]    ${option_text}
+    Wait For Elements State    ${DROPDOWN_MARKED_OPTION}:has-text("${option_text}")    visible
+
     Wait For Elements State    ${DROPDOWN_MARKED_OPTION}:has-text("${option_text}")    visible
