@@ -1,10 +1,6 @@
 *** Settings ***
-Documentation     Reusable keywords for ng-select dropdowns (single and multi select).
-...               Every keyword takes the ng-select locator as its first argument, e.g.
-...               ${SALARY_ACCOUNT_PAYSLIP_NO_DROPDOWN}, so the same keywords work for any dropdown.
-...               The option panel (ng-dropdown-panel) is rendered outside the ng-select element,
-...               so panel locators are global and only valid while a dropdown is open.
-Library           Browser
+Documentation     Reusable keywords for ng-select dropdowns (single and multi select)
+Library           Browser 
 Library           Collections
 Library           String
 
@@ -13,18 +9,14 @@ Library           String
 # --- Dropdown panel & options (global, rendered outside ng-select) ----------
 ${DROPDOWN_PANEL}                 css=ng-dropdown-panel[role="listbox"]
 ${DROPDOWN_PANEL_ITEMS}           css=ng-dropdown-panel .ng-dropdown-panel-items
-${DROPDOWN_PANEL_HEADER}          css=ng-dropdown-panel .ng-dropdown-header
-${DROPDOWN_PANEL_FOOTER}          css=ng-dropdown-panel .ng-dropdown-footer
 ${DROPDOWN_OPTION}                css=ng-dropdown-panel [role="option"]
 ${DROPDOWN_ENABLED_OPTION}        css=ng-dropdown-panel [role="option"]:not(.ng-option-disabled)
 ${DROPDOWN_DISABLED_OPTION}       css=ng-dropdown-panel [role="option"].ng-option-disabled
 ${DROPDOWN_SELECTED_OPTION}       css=ng-dropdown-panel [role="option"].ng-option-selected
 ${DROPDOWN_MARKED_OPTION}         css=ng-dropdown-panel [role="option"].ng-option-marked
-${DROPDOWN_NO_ITEMS_MESSAGE}      css=ng-dropdown-panel .ng-option-disabled:has-text("No items found")
-${DROPDOWN_SELECT_ALL}            css=ng-dropdown-panel :text-is("Select All"), ng-dropdown-panel .select-all
-${DROPDOWN_SELECT_ALL_CHECKBOX}   css=ng-dropdown-panel :has-text("Select All") input[type="checkbox"], ng-dropdown-panel input[type="checkbox"]
-${DROPDOWN_UNSELECT_ALL}          css=ng-dropdown-panel :text-is("Unselect All"), ng-dropdown-panel :text-is("Deselect All")
-${DROPDOWN_TAG_LABEL}             css=ng-dropdown-panel .ng-tag-label
+${DROPDOWN_NO_ITEMS_MESSAGE}      xpath=//div[contains(@class,'ng-option-disabled') and normalize-space(.)='No items found']
+${DROPDOWN_SELECT_ALL}            xpath=//div[contains(@class,'d-flex') and .//span[normalize-space()='Select All']]
+${DROPDOWN_SELECT_ALL_CHECKBOX}   xpath=//div[.//span[normalize-space()='Select All']]//input[@type='checkbox']
 
 # --- Inner ng-select elements (scoped to dropdown locator) ------------------
 ${DROPDOWN_CONTAINER}             .ng-select-container
@@ -42,9 +34,8 @@ ${DROPDOWN_LOADING_SPINNER}       .ng-spinner-loader
 
 
 *** Keywords ***
-# ===========================================================================
 # 1. Open / close / focus
-# ===========================================================================
+
 Open Dropdown
     [Arguments]    ${dropdown_locator}
     Click    ${dropdown_locator}
@@ -157,16 +148,23 @@ Click Dropdown Select All
     Ensure Dropdown Is Open    ${dropdown_locator}
     Click    ${DROPDOWN_SELECT_ALL}
 
+# Click Dropdown Deselect All
+#     [Documentation]    Multi select: clicks "Unselect All" / "Select All" to deselect all options.
+#     [Arguments]    ${dropdown_locator}
+#     Ensure Dropdown Is Open    ${dropdown_locator}
+#     ${has_unselect}=    Get Element Count    ${DROPDOWN_UNSELECT_ALL}
+#     IF    ${has_unselect} > 0
+#         Click    ${DROPDOWN_UNSELECT_ALL}
+#     ELSE
+#         Click    ${DROPDOWN_SELECT_ALL}
+#     END
+
 Click Dropdown Deselect All
-    [Documentation]    Multi select: clicks "Unselect All" / "Select All" to deselect all options.
+    [Documentation]    Clicks the Select All element in the multi-select dropdown.
     [Arguments]    ${dropdown_locator}
     Ensure Dropdown Is Open    ${dropdown_locator}
-    ${has_unselect}=    Get Element Count    ${DROPDOWN_UNSELECT_ALL}
-    IF    ${has_unselect} > 0
-        Click    ${DROPDOWN_UNSELECT_ALL}
-    ELSE
-        Click    ${DROPDOWN_SELECT_ALL}
-    END
+    Click    ${DROPDOWN_SELECT_ALL}
+
 
 Deselect Dropdown Option
     [Documentation]    Multi select: unselects an option by clicking it in the open panel.
@@ -775,6 +773,4 @@ Get Dropdown Highlighted Option
 Dropdown Highlighted Option Should Be
     [Documentation]    The option marked by the keyboard (ng-option-marked) in the open panel.
     [Arguments]    ${option_text}
-    Wait For Elements State    ${DROPDOWN_MARKED_OPTION}:has-text("${option_text}")    visible
-
     Wait For Elements State    ${DROPDOWN_MARKED_OPTION}:has-text("${option_text}")    visible

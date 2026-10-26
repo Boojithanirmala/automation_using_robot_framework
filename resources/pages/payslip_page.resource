@@ -3,7 +3,7 @@ Documentation     Payslip creation form locators observed in the QA ERP DOM.
 Library           Browser
 Library           Collections
 Resource          ../components/dropdown.resource
-
+Resource          ../components/textarea.resource
 
 *** Variables ***
 ${PAYSLIP_NO_INPUT}                    css=input[name="payslipNo"]
@@ -70,10 +70,8 @@ Select Payslip Employees
 
 Enter Payslip Remarks
     [Arguments]    ${remarks}
-    Fill Text    ${PAYSLIP_REMARKS_TEXTAREA}    ${remarks}
-    ${actual_remarks}=    Get Property    ${PAYSLIP_REMARKS_TEXTAREA}    value
-    Should Be Equal    ${actual_remarks}    ${remarks}
-
+    Fill Textarea    ${PAYSLIP_REMARKS_TEXTAREA}    ${remarks}
+  
 Fill Payslip Form
     [Arguments]    ${month}    ${year}    ${salary_group}    ${payment_through}    ${remarks}=${EMPTY}    @{employees}
     Select Payslip Payable Month    ${month}    ${year}

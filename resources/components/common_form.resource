@@ -10,7 +10,7 @@ ${FORM_SAVE_BUTTON}               role=button[name="Save"]
 # TODO: confirm the button text used on edit forms
 ${FORM_UPDATE_BUTTON}             role=button[name="Edit"]
 ${FORM_RESET_BUTTON}              role=button[name="Reset"]
-${FORM_CANCEL_BUTTON}             text=Cancel
+${FORM_CANCEL_BUTTON}             role=button[name="Cancel"]
 ${FORM_BACK_BUTTON}               role=button[name=/Back/]
 
 # --- Toast -----------------------------------------------------------------
