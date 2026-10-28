@@ -51,7 +51,7 @@ Ensure Month Picker Is Open
 
 Close Month Picker
     [Documentation]    Clicks outside the picker (body top-left) to close the panel.
-    Click    css=body    position={"x": 1, "y": 1}
+    Click With Options    css=body    position_x=1    position_y=1
     Wait For Elements State    ${DATEPICKER_PANEL}    hidden
 
 Ensure Month Picker Is Closed
@@ -76,6 +76,9 @@ Select Month Picker Month
     Ensure Month Picker Is Open    ${picker_locator}
     IF    '${year}' != ''
         Set Month Picker Year    ${picker_locator}    ${year}
+        # Fill Text    ${DATEPICKER_YEAR_INPUT}    ${year}
+        # ${year_after_fill}=    Get Property    ${DATEPICKER_YEAR_INPUT}    value
+        # Log    Year after setting: ${year_after_fill}
     END
     ${short}=    Evaluate    $month[:3].title()
     Click    ${DATEPICKER_MONTH}:text-is("${short}")
@@ -109,8 +112,22 @@ Get Month Picker Displayed Year
 Set Month Picker Year
     [Arguments]    ${picker_locator}    ${year}
     Ensure Month Picker Is Open    ${picker_locator}
-    Fill Text    ${DATEPICKER_YEAR_INPUT}    ${year}
-    Month Picker Displayed Year Should Be    ${picker_locator}    ${year}
+    # Fill Text    ${DATEPICKER_YEAR_INPUT}    ${year}
+    # Press Keys    ${DATEPICKER_YEAR_INPUT}    Tab
+    # Month Picker Displayed Year Should Be    ${picker_locator}    ${year}
+    Click    ${DATEPICKER_YEAR_INPUT}
+    Press Keys    ${DATEPICKER_YEAR_INPUT}    Control+a
+    Type Text    ${DATEPICKER_YEAR_INPUT}    ${year}    delay=100ms    clear=False
+    ${typed}=    Get Property    ${DATEPICKER_YEAR_INPUT}    value
+    Log    Year after typing: ${typed}
+    Should Be Equal As Strings    ${typed}    ${year}
+
+    # ${year_after_fill}=    Get Property    ${DATEPICKER_YEAR_INPUT}    value
+    # Log    Year after fill: ${year_after_fill}
+    # Press Keys    ${DATEPICKER_YEAR_INPUT}    Tab
+    # ${year_after_enter}=    Get Property    ${DATEPICKER_YEAR_INPUT}    value
+    # Log    Year after Enter: ${year_after_enter}
+
 
 Increase Month Picker Year
     [Documentation]    Clicks the year arrow-up the given number of times and verifies the year.

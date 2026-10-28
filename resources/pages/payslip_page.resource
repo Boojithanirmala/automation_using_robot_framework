@@ -169,6 +169,7 @@ Wait For Payslip Employees To Reload
     [Documentation]    Employees / salary group are loaded from the server after the month or
     ...                salary group changes. Needs Browser library with "Wait Until Network Is Idle";
     ...                the error is ignored on older versions.
+    click    ${PAYSLIP_EMPLOYEES_DROPDOWN}
     Run Keyword And Ignore Error    Wait Until Network Is Idle    timeout=10s
 
 # ===========================================================================

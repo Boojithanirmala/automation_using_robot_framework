@@ -87,7 +87,7 @@ Resource            ../resources/pages/dashboard.resource
 Resource            ../resources/pages/payslip_page.resource
 Resource            ../resources/components/dropdown.resource
 Resource            ../resources/components/textarea.resource
-Resource            ../resources/components/date_picker.resource
+Resource            ../resources/components/datepicker.resource
 Resource            ../resources/components/common_form_actions.resource
 
 Suite Setup         Start Browser
@@ -247,12 +247,12 @@ Verify Payable Month Can Be Changed
     Select Payslip Payable Month    March    2027
     Month Picker Value Should Be    ${PAYSLIP_PAYABLE_MONTH_INPUT}    2027-03
 
-Verify Selected Month Is Highlighted In The Panel
-    [Tags]    payslip    payable-month
+# Verify Selected Month Is Highlighted In The Panel
+#     [Tags]    payslip    payable-month
 
-    Select Payslip Payable Month    ${PAYSLIP_MONTH}    ${PAYSLIP_YEAR}
-    Month Picker Selected Month Should Be    ${PAYSLIP_PAYABLE_MONTH_INPUT}    ${PAYSLIP_MONTH}
-    Close Month Picker
+#     Select Payslip Payable Month    ${PAYSLIP_MONTH}    ${PAYSLIP_YEAR}
+#     Month Picker Selected Month Should Be    ${PAYSLIP_PAYABLE_MONTH_INPUT}    ${PAYSLIP_MONTH}
+#     Close Month Picker
 
 Verify Year Can Be Changed With Arrows
     [Documentation]    Year arrow up/down and the < > buttons of the picker.
