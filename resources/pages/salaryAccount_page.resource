@@ -15,7 +15,7 @@ Library           Browser
 Library           Collections
 Library           String
 Resource          ../components/dropdown.resource
-Resource          ../components/common_form.resource
+Resource          ../components/common_form_actions.resource
 
 
 *** Variables ***

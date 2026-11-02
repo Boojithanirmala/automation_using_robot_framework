@@ -18,6 +18,9 @@ ${FORM_BACK_BUTTON}        xpath=//button[contains(@class,'btn')][normalize-spac
 ${LIST_ADD_NEW_BUTTON}     xpath=//button[contains(@class,'btn')][starts-with(normalize-space(.),'Add New')]
 ${LIST_EDIT_BUTTON}        css=button[title="Edit"]
 ${LIST_DELETE_BUTTON}      css=button[title="Delete"]
+${DELETE_CONFIRMATION_POPUP}    css=div.swal2-popup
+${DELETE_CONFIRM_BUTTON}        css=button.swal2-confirm
+${DELETE_CANCEL_BUTTON}         css=button.swal2-cancel
 
 # --- Toast ---------------------------------------------------------------------
 ${TOAST_CONTAINER}         css=#toast-container
@@ -126,6 +129,18 @@ Edit And Delete Buttons Should Be Visible In Row
     ...    xpath=//tr[contains(normalize-space(.),'${row_text}')]//button[@title='Edit']    visible
     Wait For Elements State
     ...    xpath=//tr[contains(normalize-space(.),'${row_text}')]//button[@title='Delete']    visible
+
+
+Confirm Delete
+    Wait For Elements State    ${DELETE_CONFIRMATION_POPUP}    visible
+    Click    ${DELETE_CONFIRM_BUTTON}
+
+Cancel Delete
+    Wait For Elements State    ${DELETE_CONFIRMATION_POPUP}    visible
+    Click    ${DELETE_CANCEL_BUTTON}
+
+Delete Confirmation Should Be Visible
+    Wait For Elements State    ${DELETE_CONFIRMATION_POPUP}    visible
 
 # ===========================================================================
 # 3. Toast messages

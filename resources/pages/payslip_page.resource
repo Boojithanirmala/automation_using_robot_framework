@@ -123,6 +123,7 @@ Clear Payslip Employees
 
 Get Payslip Employee Options
     [Documentation]    Employee names currently offered by the dropdown.
+    Wait For Elements State    css=ng-dropdown-panel[role="listbox"] [role="option"] >> nth=0    visible    timeout=15s
     ${options}=    Get Dropdown Options    ${PAYSLIP_EMPLOYEES_DROPDOWN}
     RETURN    ${options}
 

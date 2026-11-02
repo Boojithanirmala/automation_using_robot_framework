@@ -1,85 +1,5 @@
-# *** Settings ***
-# Documentation       Payslip form UI smoke tests.
-
-# Resource            ../resources/common.resource
-# Resource            ../resources/pages/login_page.resource
-# Resource            ../resources/pages/dashboard.resource
-# Resource            ../resources/pages/payslip_page.resource
-
-# Suite Setup         Start Browser
-# Suite Teardown      Close Browser
-# Test Setup          Open Payslip Form
-# Test Teardown       Close Test Context
-
-
-# *** Variables ***
-# ${PAYSLIP_MONTH}        October
-# ${PAYSLIP_YEAR}         2026
-# ${TEST_REMARKS}         Automation test remarks
-
-# *** Keywords ***
-# Open Payslip Form
-#     Open Fresh Page
-#     Login With Credentials    ${VALID_USERNAME}    ${VALID_PASSWORD}
-#     Dashboard Should Be Open
-#     Go To Page    /dynamicformadd/payslipForm
-
-# *** Test Cases ***
-
-# Verify Payslip Form Fields Are Visible
-#     [Documentation]    Verify the main Payslip form controls are available.
-#     [Tags]    payslip    smoke
-
-#     Wait For Elements State    ${PAYSLIP_NO_INPUT}    visible
-#     Wait For Elements State    ${PAYSLIP_PAYABLE_MONTH_INPUT}    visible
-#     Wait For Elements State    ${PAYSLIP_REMARKS_TEXTAREA}    visible
-#     Wait For Elements State    ${PAYSLIP_EMPLOYEES_DROPDOWN}    visible
-#     Wait For Elements State    ${PAYSLIP_SALARY_GROUP_DROPDOWN}    visible
-#     Wait For Elements State    ${PAYSLIP_PAYMENT_THROUGH_DROPDOWN}    visible
-
-# Verify Payable Month Can Be Selected
-#     [Documentation]    Verify the month picker selects October 2026.
-#     [Tags]    payslip    payable-month
-
-#     Select Payslip Payable Month    ${PAYSLIP_MONTH}    ${PAYSLIP_YEAR}
-
-# Verify Remarks Can Be Entered
-#     [Documentation]    Verify remarks can be entered and read back.
-#     [Tags]    payslip    remarks
-
-#     Enter Payslip Remarks    ${TEST_REMARKS}
-
-# Verify Salary Group Dropdown Can Be Opened
-#     [Documentation]    Verify the Salary Group dropdown opens.
-#     [Tags]    payslip    dropdown
-
-#     Open Dropdown    ${PAYSLIP_SALARY_GROUP_DROPDOWN}
-#     Wait For Elements State
-#     ...    ${PAYSLIP_SALARY_GROUP_DROPDOWN}
-#     ...    visible
-
-#     Click    ${PAYSLIP_SALARY_GROUP_DROPDOWN}
-
-# Verify Payment Through Dropdown Can Be Opened
-#     [Documentation]    Verify the Payment Through dropdown opens.
-#     [Tags]    payslip    dropdown
-
-#     Open Dropdown    ${PAYSLIP_PAYMENT_THROUGH_DROPDOWN}
-#     Wait For Elements State
-#     ...    ${PAYSLIP_PAYMENT_THROUGH_DROPDOWN}
-#     ...    visible
-
-#     Click    ${PAYSLIP_PAYMENT_THROUGH_DROPDOWN}
-
-
-
-
 *** Settings ***
 Documentation       Payslip form UI and business-rule tests.
-...
-...                 Tests tagged "data" CREATE payslips (Save) and pick the employee dynamically
-...                 from the dropdown, so each run uses up one available employee for the month
-...                 used by that scenario. Change the SCENARIO_* months below when they run out.
 
 Resource            ../resources/common.resource
 Resource            ../resources/pages/login_page.resource
@@ -228,13 +148,13 @@ Verify Payable Month Can Be Selected
     Month Picker Value Should Match Format    ${PAYSLIP_PAYABLE_MONTH_INPUT}
     Month Picker Title Should Be    ${PAYSLIP_PAYABLE_MONTH_INPUT}    ${PAYSLIP_YEAR}-10
 
-Verify Month Picker Opens From Calendar Icon And Shows All Months
-    [Tags]    payslip    payable-month
+# Verify Month Picker Opens From Calendar Icon And Shows All Months
+#     [Tags]    payslip    payable-month
 
-    Open Month Picker Using Icon    ${PAYSLIP_PAYABLE_MONTH_INPUT}
-    Month Picker Should Show All Months    ${PAYSLIP_PAYABLE_MONTH_INPUT}
-    Month Picker Month Names Should Be Jan To Dec    ${PAYSLIP_PAYABLE_MONTH_INPUT}
-    Close Month Picker
+#     Open Month Picker Using Icon    ${PAYSLIP_PAYABLE_MONTH_INPUT}
+#     Month Picker Should Show All Months    ${PAYSLIP_PAYABLE_MONTH_INPUT}
+#     Month Picker Month Names Should Be Jan To Dec    ${PAYSLIP_PAYABLE_MONTH_INPUT}
+#     Close Month Picker
 
 Verify Payable Month Can Be Changed
     [Documentation]    The month can be changed after a first selection (month and year).

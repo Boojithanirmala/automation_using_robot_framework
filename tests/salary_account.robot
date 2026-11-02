@@ -5,15 +5,21 @@ Resource          ../resources/common.resource
 Resource          ../resources/pages/login_page.resource
 Resource          ../resources/pages/dashboard.resource
 Resource          ../resources/components/dropdown.resource
-Resource          ../resources/components/common_form.resource
+Resource          ../resources/components/common_form_actions.resource
 Resource          ../resources/pages/salaryAccount_page.resource
 
-# No Suite Setup: "Open Fresh Page" starts the page for every test.
-# If your payslip suite has a Suite Setup (for example one that starts the browser
-# with headless=False), copy that same line here.
 Suite Teardown    Close Browser
 Test Setup        Open Salary Account Form
 Test Teardown     Close Test Context
+
+*** Keywords ***
+Open Salary Account Form
+    [Documentation]    Same flow as the payslip suite: fresh page, login, dashboard, open the form.
+    Open Fresh Page
+    Login With Credentials    ${VALID_USERNAME}    ${VALID_PASSWORD}
+    Dashboard Should Be Open
+    Go To Page    ${SALARY_ACCOUNT_URL}
+    Salary Account Form Should Be Visible
 
 
 *** Variables ***
@@ -222,11 +228,3 @@ Verify Saved Payslip Is Not Listed Again For The Same Month
     Salary Account Payslip No Options Should Not Contain    ${CREATE_PAYSLIP_NO}
 
 
-*** Keywords ***
-Open Salary Account Form
-    [Documentation]    Same flow as the payslip suite: fresh page, login, dashboard, open the form.
-    Open Fresh Page
-    Login With Credentials    ${VALID_USERNAME}    ${VALID_PASSWORD}
-    Dashboard Should Be Open
-    Go To Page    ${SALARY_ACCOUNT_URL}
-    Salary Account Form Should Be Visible

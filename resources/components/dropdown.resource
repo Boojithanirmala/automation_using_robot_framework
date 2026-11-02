@@ -20,7 +20,7 @@ ${DROPDOWN_SELECT_ALL_CHECKBOX}   xpath=//div[.//span[normalize-space()='Select 
 
 # --- Inner ng-select elements (scoped to dropdown locator) ------------------
 ${DROPDOWN_CONTAINER}             .ng-select-container
-${DROPDOWN_INPUT}                 input
+${DROPDOWN_INPUT}                 css=.ng-input > input    #input
 ${DROPDOWN_COMBOBOX}              [role="combobox"]
 ${DROPDOWN_VALUE}                 .ng-value
 ${DROPDOWN_VALUE_LABEL}           .ng-value-label
@@ -311,15 +311,20 @@ Dropdown Options Should Not Be Visible
         Should Be Equal As Integers    ${count}    0
     END
 
+# Get Visible Dropdown Options
+#     [Documentation]    Returns the enabled option texts of the panel that is currently open.
+#     ${elements}=    Get Elements    ${DROPDOWN_ENABLED_OPTION}
+#     ${options}=    Create List
+#     FOR    ${element}    IN    @{elements}
+#         ${text}=    Get Text    ${element}
+#         ${text}=    Strip String    ${text}
+#         Append To List    ${options}    ${text}
+#     END
+#     RETURN    ${options}
+
 Get Visible Dropdown Options
-    [Documentation]    Returns the enabled option texts of the panel that is currently open.
-    ${elements}=    Get Elements    ${DROPDOWN_ENABLED_OPTION}
-    ${options}=    Create List
-    FOR    ${element}    IN    @{elements}
-        ${text}=    Get Text    ${element}
-        ${text}=    Strip String    ${text}
-        Append To List    ${options}    ${text}
-    END
+    ${options}=    Evaluate JavaScript    ${DROPDOWN_PANEL}
+    ...    (el) => Array.from(el.querySelectorAll('.ng-option:not(.ng-option-disabled)')).map(o => o.innerText.trim())
     RETURN    ${options}
 
 Get Dropdown Options
