@@ -327,6 +327,7 @@ Get Visible Dropdown Options
     ...    (el) => Array.from(el.querySelectorAll('.ng-option:not(.ng-option-disabled)')).map(o => o.innerText.trim())
     RETURN    ${options}
 
+
 Get Dropdown Options
     [Documentation]    Opens the dropdown if needed, returns the enabled option texts and closes it.
     ...                Works when the list is empty (the panel may only hold the disabled placeholder).

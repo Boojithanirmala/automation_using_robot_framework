@@ -90,8 +90,7 @@ E2E Payslip To Salary Account Flow
     Log Step    8. Save the salary account
     Append To List    ${CREATED_SALARY_ACCOUNT_NOS}    ${old_account_no}
     Click Save Button
-    Data Created Toast Should Be Visible
-    Wait Until Toast Disappears
+    Wait For Elements State    text="Payslip Generated Successfully"    visible
 
     Log Step    9. New form: next account no, and the saved payslip is not listed again
     Reopen Salary Account Form

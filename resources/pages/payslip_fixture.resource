@@ -28,6 +28,8 @@ ${FIXTURE_MAX_MONTH_TRIES}      36
 # TODO: confirm against the real delete confirmation popup of your app.
 ${CONFIRM_DELETE_BUTTON}        xpath=//button[contains(@class,'swal2-confirm') or normalize-space(.)='Yes' or normalize-space(.)='Delete']
 
+${REFERENCE_CHANGED_POPUP}       css=div.swal2-popup
+${REFERENCE_CHANGED_OK_BUTTON}    ${REFERENCE_CHANGED_POPUP} >> css=button.swal2-confirm
 
 *** Keywords ***
 Reopen Payslip Form
@@ -142,7 +144,9 @@ Create Payslip Fixture
         ${payslip_no}=    Get Property    ${PAYSLIP_NO_INPUT}    value
         Should Not Be Empty    ${payslip_no}
         Click Save Button
-        Data Created Toast Should Be Visible
+        Handle Reference Number Changed Popup
+        Wait For Elements State    text="Payslip Generated Successfully"    visible
+        #Data Created Toast Should Be Visible
     EXCEPT    AS    ${error}
         Run Keyword And Ignore Error    Take Screenshot
         Fail    Creating the payslip fixture for ${month} ${year} failed: ${error}
@@ -155,6 +159,20 @@ Create Payslip Fixture
     Log    Payslip fixture created: ${fixture}
     Log To Console    \n[fixture] created ${payslip_no} in ${month} ${year}: ${employee_count} employee(s)
     RETURN    ${fixture}
+
+
+Handle Reference Number Changed Popup
+    ${popup_visible}=    Run Keyword And Return Status
+    ...    Wait For Elements State
+    ...    ${REFERENCE_CHANGED_POPUP}
+    ...    visible
+    ...    timeout=3s
+
+    IF    ${popup_visible}
+        Click    ${REFERENCE_CHANGED_OK_BUTTON}
+        Wait For Elements State    ${REFERENCE_CHANGED_POPUP}    hidden
+    END
+
 
 # ===========================================================================
 # Cleanup (optional - month discovery already keeps re-runs working)
