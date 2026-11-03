@@ -1,15 +1,6 @@
 *** Settings ***
 Documentation       Test-data factory for the Payslip module.
-...
-...                 Location: resources/pages/payslip_fixture.resource
-...                 (all Resource paths below are relative to THIS file's folder)
-...
-...                 Other suites (Salary Account, ...) call "Create Payslip Fixture" to get a REAL payslip
-...                 and receive everything about it back as one dictionary:
-...                     no, month, year, groups, payment, employees, employee_count, remarks
-...
-...                 Today the payslip is created through the UI. Later, ONLY the body of
-...                 "Create Payslip Fixture" / "Delete Test Payslips" has to be replaced by API calls.
+
 Library             Browser
 Library             Collections
 Resource            ../common.resource
@@ -25,11 +16,13 @@ ${PAYSLIP_LIST_PATH}            /dynamiclist/payslipForm
 ${FIXTURE_START_YEAR}           2028
 ${FIXTURE_MAX_MONTH_TRIES}      36
 
-# TODO: confirm against the real delete confirmation popup of your app.
 ${CONFIRM_DELETE_BUTTON}        xpath=//button[contains(@class,'swal2-confirm') or normalize-space(.)='Yes' or normalize-space(.)='Delete']
 
-${REFERENCE_CHANGED_POPUP}       css=div.swal2-popup
-${REFERENCE_CHANGED_OK_BUTTON}    ${REFERENCE_CHANGED_POPUP} >> css=button.swal2-confirm
+
+${REFERENCE_CHANGED_POPUP}        css=.swal2-popup:has-text("Reference number changed")
+${REFERENCE_CHANGED_NUMBER}       ${REFERENCE_CHANGED_POPUP} >> css=.swal2-html-container td >> nth=0
+${REFERENCE_CHANGED_OK_BUTTON}    ${REFERENCE_CHANGED_POPUP} >> css=.swal2-confirm
+
 
 *** Keywords ***
 Reopen Payslip Form
@@ -42,10 +35,7 @@ Get First Salary Group
     RETURN    ${groups}[0]
 
 Get Free Employee Options
-    [Documentation]    Employee options of the form (after month + group are selected).
-    ...                An EMPTY list is a valid answer: ng-select shows only "No items found" (it has no
-    ...                role="option"), so a keyword that waits for an option would hang for 15 s.
-    ...                The component keyword "Get Dropdown Options" handles the empty list in 3 s.
+    [Documentation]    Employee options of the form 
     Wait Until Dropdown Is Loaded    ${PAYSLIP_EMPLOYEES_DROPDOWN}    20s
     ${options}=    Get Dropdown Options    ${PAYSLIP_EMPLOYEES_DROPDOWN}
     IF    not $options
@@ -56,8 +46,9 @@ Get Free Employee Options
     RETURN    ${options}
 
 Count Free Employees In Month
-    [Documentation]    Opens a fresh form, selects the month + first salary group and returns how many
-    ...                employees (without a payslip) are offered. 0 when the month has no group / employees.
+    [Documentation]    COUNTING PASS: opens a fresh form, selects the month + first salary group and returns
+    ...                how many employees (without a payslip) are offered. It only READS the list - it does
+    ...                not select any employee. 0 when the month has no group / employees.
     [Arguments]    ${month}    ${year}
     TRY
         Reopen Payslip Form
@@ -77,8 +68,9 @@ Count Free Employees In Month
 Find Free Payslip Month
     [Documentation]    Walks forward from FIXTURE_START_YEAR and returns the first month + year where the first
     ...                salary group still has at least ${employees_needed} employees without a payslip.
-    ...                It STOPS at the first month that fits, so the month it returns is the one the
-    ...                payslip is created in. Months listed in @{exclude} (format Month-Year) are skipped.
+    ...                It STOPS at the first month that fits and leaves that month + group selected on the
+    ...                open form, so "Create Payslip Fixture ... reuse_open_form=${True}" can continue on it.
+    ...                Months listed in @{exclude} (format Month-Year) are skipped.
     ...                Progress is printed to the console, one line per month checked.
     [Arguments]    ${employees_needed}    @{exclude}
     @{names}=    Create List    January    February    March    April    May    June
@@ -96,10 +88,7 @@ Find Free Payslip Month
     Fail    No month with ${employees_needed} free employees found in ${FIXTURE_MAX_MONTH_TRIES} months from ${FIXTURE_START_YEAR}. Delete old test payslips or raise FIXTURE_START_YEAR.
 
 Select Fixture Employees
-    [Documentation]    Clicks every employee in the open list. It does NOT type the long "code | name" text
-    ...                into the search box (the filtered list is re-rendered asynchronously, so an immediate
-    ...                check finds 0 options). Verification is done in the panel at the end, because the chips
-    ...                collapse into "+N More..." and cannot be used to check the later employees.
+    [Documentation]    Clicks every employee in the open list. 
     [Arguments]    @{employees}
     FOR    ${employee}    IN    @{employees}
         Ensure Dropdown Is Open    ${PAYSLIP_EMPLOYEES_DROPDOWN}
@@ -114,15 +103,20 @@ Select Fixture Employees
     Ensure Dropdown Is Closed    ${PAYSLIP_EMPLOYEES_DROPDOWN}
 
 Create Payslip Fixture
-    [Documentation]    Creates one payslip (month + first salary group + the first N free employees) and
-    ...                returns its details as a dictionary.
-    ...                payment=AUTO picks the first Payment Through option, empty leaves it blank.
+    [Documentation]    CREATING PASS: creates one payslip (month + first salary group + the first N free
+    ...                employees) and returns its details as a dictionary
     [Arguments]    ${month}    ${year}    ${employee_count}=1    ${payment}=${EMPTY}    ${remarks}=${EMPTY}
+    ...    ${reuse_open_form}=${False}
     TRY
-        Reopen Payslip Form
-        Select Payslip Payable Month    ${month}    ${year}
-        ${group}=    Get First Salary Group
-        Select Payslip Salary Groups    ${group}
+        IF    ${reuse_open_form}
+            ${selected_groups}=    Get Dropdown Selected Values    ${PAYSLIP_SALARY_GROUP_DROPDOWN}
+            ${group}=    Set Variable    ${selected_groups}[0]
+        ELSE
+            Reopen Payslip Form
+            Select Payslip Payable Month    ${month}    ${year}
+            ${group}=    Get First Salary Group
+            Select Payslip Salary Groups    ${group}
+        END
         ${options}=    Get Free Employee Options
         ${available}=    Get Length    ${options}
         Should Be True    ${available} >= ${employee_count}
@@ -140,13 +134,16 @@ Create Payslip Fixture
             Enter Payslip Remarks    ${remarks}
         END
         # Payslip No is generated by the system - capture it before saving.
-        # (If your app generates it only on save, read it from the first row of the payslip list instead.)
         ${payslip_no}=    Get Property    ${PAYSLIP_NO_INPUT}    value
         Should Not Be Empty    ${payslip_no}
         Click Save Button
-        Handle Reference Number Changed Popup
+        # If the app changed the number to avoid a duplicate, the number captured above is stale.
+        ${changed_no}=    Handle Reference Number Changed Popup
+        IF    $changed_no != ''
+            Log    Payslip number changed by the app: ${payslip_no} -> ${changed_no}    level=WARN
+            ${payslip_no}=    Set Variable    ${changed_no}
+        END
         Wait For Elements State    text="Payslip Generated Successfully"    visible
-        #Data Created Toast Should Be Visible
     EXCEPT    AS    ${error}
         Run Keyword And Ignore Error    Take Screenshot
         Fail    Creating the payslip fixture for ${month} ${year} failed: ${error}
@@ -160,19 +157,16 @@ Create Payslip Fixture
     Log To Console    \n[fixture] created ${payslip_no} in ${month} ${year}: ${employee_count} employee(s)
     RETURN    ${fixture}
 
-
 Handle Reference Number Changed Popup
+    [Documentation]    The popup does not always appear. Popup shown -> returns the NEW number after clicking
+    ...                "OK, Save Now". No popup -> returns an empty string.
     ${popup_visible}=    Run Keyword And Return Status
-    ...    Wait For Elements State
-    ...    ${REFERENCE_CHANGED_POPUP}
-    ...    visible
-    ...    timeout=3s
-
-    IF    ${popup_visible}
-        Click    ${REFERENCE_CHANGED_OK_BUTTON}
-        Wait For Elements State    ${REFERENCE_CHANGED_POPUP}    hidden
-    END
-
+    ...    Wait For Elements State    ${REFERENCE_CHANGED_POPUP}    visible    timeout=3s
+    IF    not ${popup_visible}    RETURN    ${EMPTY}
+    ${new_number}=    Get Text    ${REFERENCE_CHANGED_NUMBER}
+    Click    ${REFERENCE_CHANGED_OK_BUTTON}
+    Wait For Elements State    ${REFERENCE_CHANGED_POPUP}    hidden
+    RETURN    ${new_number.strip()}
 
 # ===========================================================================
 # Cleanup (optional - month discovery already keeps re-runs working)
