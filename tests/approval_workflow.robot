@@ -7,6 +7,7 @@ Resource          ${CURDIR}/../resources/common.resource
 Resource          ${CURDIR}/../resources/components/approval_workflow.resource
 Resource          ${CURDIR}/../resources/components/approval_log.resource
 Resource          ${CURDIR}/../resources/components/approval_status_config.resource
+Resource          ${CURDIR}/common_form_actions.resources
 Suite Setup       Start Browser
 Test Setup        Open Fresh Page
 Test Teardown     Close Test Context
@@ -80,3 +81,31 @@ Approval Log Records Rejection
     Login As Approver    L2
     Go To Page    ${LISTING_PATH}
     Latest Approval Log Should Be Rejection    ${RECORD_ID}    reject remarks
+
+Get Record Actions
+    [Documentation]    Returns the sorted action names the current user gets on a record, e.g.
+    ...                ['Approval Log', 'Approve', 'Delete', 'Edit', 'Reject'].
+    ...                "Approve (<any status name>)" is normalised to "Approve", so dynamic status names don't matter.
+    ...                The row is found through the record id, so the record's Approval Log button must be visible.
+    [Arguments]    ${record_id}
+    ${buttons}=    Set Variable    xpath=//tr[.//button[contains(@onclick,'${record_id}')]]//button[@title]
+    Wait For Elements State    ${buttons} >> nth=0    visible
+    ${count}=    Get Element Count    ${buttons}
+    ${actions}=    Create List
+    FOR    ${i}    IN RANGE    ${count}
+        ${title}=    Get Attribute    ${buttons} >> nth=${i}    title
+        ${name}=    Replace String Using Regexp    ${title}    ^Approve \\(.*\\)$    Approve
+        Append To List    ${actions}    ${name}
+    END
+    Sort List    ${actions}
+    RETURN    ${actions}
+
+
+Get Record Id By Row Text
+    [Documentation]    Returns the record id of the row containing the text, read from the Approval Log button's onclick.
+    [Arguments]    ${row_text}
+    ${log_btn}=    Set Variable    xpath=//tr[contains(normalize-space(.),'${row_text}')]//button[@title='Approval Log']
+    Wait For Elements State    ${log_btn}    visible
+    ${onclick}=    Get Attribute    ${log_btn}    onclick
+    ${ids}=    Get Regexp Matches    ${onclick}    '([0-9a-f]{24})'    1
+    RETURN    ${ids}[0]

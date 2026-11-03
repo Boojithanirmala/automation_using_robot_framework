@@ -324,7 +324,7 @@ Dropdown Options Should Not Be Visible
 
 Get Visible Dropdown Options
     ${options}=    Evaluate JavaScript    ${DROPDOWN_PANEL}
-    ...    (el) => Array.from(el.querySelectorAll('.ng-option:not(.ng-option-disabled)')).map(o => o.innerText.trim())
+    ...    (el) => Array.from(el.querySelectorAll('.ng-option:not(.ng-option-disabled)')).map(o => o.innerText.split('\\n')[0].trim())
     RETURN    ${options}
 
 

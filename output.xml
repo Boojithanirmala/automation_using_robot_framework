@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< Updated upstream
 <robot generator="Robot 7.5 (Python 3.14.2 on win32)" generated="2026-11-03T10:10:41.560684" rpa="false" schemaversion="5">
 <suite id="s1" name="Salary Account E2E" source="C:\Users\aadhi\robot-login-suite\tests\salary_account_e2e.robot">
 <kw name="Prepare E2E Data" type="SETUP">
@@ -7,11 +8,21 @@
 <msg time="2026-11-03T10:10:42.543466" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\aadhi\\robot-login-suite\\browser\\traces\\temp\\ee0c9a5b-b9cd-42a5-aca1-e9ce983f16e2"}</msg>
 <msg time="2026-11-03T10:10:42.603875" level="INFO">Starting Browser process C:\Users\aadhi\robot-login-suite\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:63803</msg>
 <msg time="2026-11-03T10:10:45.973280" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\aadhi\\robot-login-suite\\browser\\traces\\temp\\ee0c9a5b-b9cd-42a5-aca1-e9ce983f16e2"}</msg>
+=======
+<robot generator="Robot 7.5 (Python 3.14.3 on win32)" generated="2026-10-29T22:32:46.405720" rpa="false" schemaversion="5">
+<suite id="s1" name="Payslip" source="C:\Users\aadhi\automation_using_robot_framework\tests\payslip.robot">
+<kw name="Start Browser" owner="common" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-29T22:32:47.834566" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\aadhi\\automation_using_robot_framework\\browser\\traces\\temp\\869dac74-cf81-4ee3-99b2-5ad2ec2c32eb"}</msg>
+<msg time="2026-10-29T22:32:48.175168" level="INFO">Starting Browser process C:\Users\aadhi\automation_using_robot_framework\.venv\Lib\site-packages\Browser\wrapper\index.js using at 127.0.0.1:17898</msg>
+<msg time="2026-10-29T22:32:50.593560" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\aadhi\\automation_using_robot_framework\\browser\\traces\\temp\\869dac74-cf81-4ee3-99b2-5ad2ec2c32eb"}</msg>
+>>>>>>> Stashed changes
 <arg>browser=${BROWSER}</arg>
 <arg>headless=${HEADLESS}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:42.541409" elapsed="3.432230"/>
 </kw>
 <status status="PASS" start="2026-11-03T10:10:42.539176" elapsed="3.434792"/>
@@ -19,6 +30,17 @@
 <kw name="Open Fresh Page" owner="common">
 <kw name="New Context" owner="Browser">
 <msg time="2026-11-03T10:10:45.984103" level="INFO">{
+=======
+<status status="PASS" start="2026-10-29T22:32:47.833020" elapsed="2.760963"/>
+</kw>
+<status status="PASS" start="2026-10-29T22:32:47.831060" elapsed="2.763398"/>
+</kw>
+<test id="s1-t1" name="Verify Payment Through Allows Only One Value" line="306">
+<kw name="Open Payslip Form" type="SETUP">
+<kw name="Open Fresh Page" owner="common">
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-29T22:32:50.670895" level="INFO">{
+>>>>>>> Stashed changes
   "acceptDownloads": true,
   "bypassCSP": false,
   "forcedColors": "none",
@@ -28,16 +50,22 @@
   "reducedMotion": "no-preference",
   "serviceWorkers": "allow",
   "viewport": {
-    "height": 768,
-    "width": 1366
+    "width": 1366,
+    "height": 768
   }
 }</msg>
+<<<<<<< Updated upstream
 <msg time="2026-11-03T10:10:46.051877" level="INFO">Successfully created context. </msg>
 <msg time="2026-11-03T10:10:46.052063" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'height': 768, 'width': 1366}}</msg>
+=======
+<msg time="2026-10-29T22:32:50.746684" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-29T22:32:50.746959" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1366, 'height': 768}}</msg>
+>>>>>>> Stashed changes
 <arg>viewport={'width': 1366, 'height': 768}</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new BrowserContext with specified options.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:45.975928" elapsed="0.076429"/>
 </kw>
 <kw name="New Page" owner="Browser">
@@ -50,12 +78,27 @@
 <kw name="Go To Page" owner="common">
 <kw name="Go To" owner="Browser">
 <msg time="2026-11-03T10:10:50.331508" level="INFO">Successfully opened URL https://qa.devcodenzo.online/authentication/login</msg>
+=======
+<status status="PASS" start="2026-10-29T22:32:50.656889" elapsed="0.090284"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-29T22:32:51.614798" level="INFO">Successfully initialized new page object and opened url: about:blank</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-29T22:32:50.747828" elapsed="0.867496"/>
+</kw>
+<kw name="Go To Page" owner="common">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-29T22:32:55.710111" level="INFO">Successfully opened URL https://qa.devcodenzo.online/authentication/login</msg>
+>>>>>>> Stashed changes
 <arg>${BASE_URL}${path}</arg>
 <arg>wait_until=domcontentloaded</arg>
 <arg>timeout=30000</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:47.516453" elapsed="2.815306"/>
 </kw>
 <arg>${LOGIN_PATH}</arg>
@@ -68,45 +111,89 @@
 <kw name="Login With Credentials" owner="login_page">
 <kw name="Fill Text" owner="Browser">
 <msg time="2026-11-03T10:10:50.334069" level="INFO">Fills the text '0000' in the given field.</msg>
+=======
+<status status="PASS" start="2026-10-29T22:32:51.620519" elapsed="4.089835"/>
+</kw>
+<arg>${LOGIN_PATH}</arg>
+<doc>Navigate to ANY page: base URL + that page's path.</doc>
+<status status="PASS" start="2026-10-29T22:32:51.617040" elapsed="4.093591"/>
+</kw>
+<doc>New clean context, then open the login page (base URL + login path).</doc>
+<status status="PASS" start="2026-10-29T22:32:50.652907" elapsed="5.057912"/>
+</kw>
+<kw name="Login With Credentials" owner="login_page">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-29T22:32:55.713432" level="INFO">Fills the text '0000' in the given field.</msg>
+>>>>>>> Stashed changes
 <arg>${USERNAME_INPUT}</arg>
 <arg>${username}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:50.333151" elapsed="0.457595"/>
 </kw>
 <kw name="Fill Text" owner="Browser">
 <msg time="2026-11-03T10:10:50.793006" level="INFO">Fills the text 'Admin@123' in the given field.</msg>
+=======
+<status status="PASS" start="2026-10-29T22:32:55.712248" elapsed="0.579527"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-29T22:32:56.295426" level="INFO">Fills the text 'Admin@123' in the given field.</msg>
+>>>>>>> Stashed changes
 <arg>${PASSWORD_INPUT}</arg>
 <arg>${password}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:50.791399" elapsed="0.150864"/>
 </kw>
 <kw name="Click" owner="Browser">
 <msg time="2026-11-03T10:10:50.947518" level="INFO">Clicks the element 'button[type="submit"]'.</msg>
+=======
+<status status="PASS" start="2026-10-29T22:32:56.292692" elapsed="0.054638"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-29T22:32:56.351314" level="INFO">Clicks the element 'button[type="submit"]'.</msg>
+>>>>>>> Stashed changes
 <arg>${LOGIN_BUTTON}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:50.943134" elapsed="0.152658"/>
+=======
+<status status="PASS" start="2026-10-29T22:32:56.349849" elapsed="0.446466"/>
+>>>>>>> Stashed changes
 </kw>
 <arg>${VALID_USERNAME}</arg>
 <arg>${VALID_PASSWORD}</arg>
 <doc>Fills the form and clicks Login. Does NOT check the result.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:50.332426" elapsed="0.763676"/>
 </kw>
 <kw name="Dashboard Should Be Open" owner="dashboard">
 <kw name="Wait For Elements State" owner="Browser">
 <msg time="2026-11-03T10:10:51.128451" level="INFO">Waited for Element with selector text=Welcome back at state visible</msg>
+=======
+<status status="PASS" start="2026-10-29T22:32:55.711227" elapsed="1.085512"/>
+</kw>
+<kw name="Dashboard Should Be Open" owner="dashboard">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-29T22:32:56.889164" level="INFO">Waited for Element with selector text=Welcome back at state visible</msg>
+>>>>>>> Stashed changes
 <arg>${DASHBOARD_MARKER}</arg>
 <arg>visible</arg>
 <arg>timeout=20s</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:51.097574" elapsed="0.031149"/>
+=======
+<status status="PASS" start="2026-10-29T22:32:56.799698" elapsed="0.089924"/>
+>>>>>>> Stashed changes
 </kw>
 <kw name="Url Should Be Page" owner="common">
 <kw name="Get Url" owner="Browser">
@@ -116,6 +203,7 @@
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the current URL.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:51.129804" elapsed="0.453246"/>
 </kw>
 <arg>${DASHBOARD_PATH}</arg>
@@ -123,6 +211,15 @@
 <status status="PASS" start="2026-11-03T10:10:51.129124" elapsed="0.454233"/>
 </kw>
 <status status="PASS" start="2026-11-03T10:10:51.096608" elapsed="0.486945"/>
+=======
+<status status="PASS" start="2026-10-29T22:32:56.915633" elapsed="0.583090"/>
+</kw>
+<arg>${DASHBOARD_PATH}</arg>
+<doc>Assert the current URL is base URL + that page's path.</doc>
+<status status="PASS" start="2026-10-29T22:32:56.896847" elapsed="0.602560"/>
+</kw>
+<status status="PASS" start="2026-10-29T22:32:56.797580" elapsed="0.702168"/>
+>>>>>>> Stashed changes
 </kw>
 <kw name="Find Free Payslip Month" owner="payslip_fixture">
 <kw name="Create List" owner="BuiltIn">
@@ -188,26 +285,42 @@
 <kw name="Reopen Payslip Form" owner="payslip_fixture">
 <kw name="Go To Page" owner="common">
 <kw name="Go To" owner="Browser">
+<<<<<<< Updated upstream
 <msg time="2026-11-03T10:10:52.215825" level="INFO">Successfully opened URL https://qa.devcodenzo.online/dynamicformadd/payslipForm</msg>
+=======
+<msg time="2026-10-29T22:32:58.420914" level="INFO">Successfully opened URL https://qa.devcodenzo.online/dynamicformadd/payslipForm</msg>
+>>>>>>> Stashed changes
 <arg>${BASE_URL}${path}</arg>
 <arg>wait_until=domcontentloaded</arg>
 <arg>timeout=30000</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Navigates to the given ``url``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:51.612982" elapsed="0.603244"/>
+=======
+<status status="PASS" start="2026-10-29T22:32:57.502794" elapsed="0.919121"/>
+>>>>>>> Stashed changes
 </kw>
 <arg>${PAYSLIP_FORM_PATH}</arg>
 <doc>Navigate to ANY page: base URL + that page's path.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:51.611787" elapsed="0.604685"/>
 </kw>
 <kw name="Wait For Elements State" owner="Browser">
 <msg time="2026-11-03T10:10:54.873074" level="INFO">Waited for Element with selector css=input[name="payslipNo"] at state visible</msg>
+=======
+<status status="PASS" start="2026-10-29T22:32:57.500716" elapsed="0.921680"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-29T22:33:01.890737" level="INFO">Waited for Element with selector css=input[name="payslipNo"] at state visible</msg>
+>>>>>>> Stashed changes
 <arg>${PAYSLIP_NO_INPUT}</arg>
 <arg>visible</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:52.217460" elapsed="2.655888"/>
 </kw>
 <status status="PASS" start="2026-11-03T10:10:51.610889" elapsed="3.264015"/>
@@ -435,6 +548,17 @@ the error is ignored on older versions.</doc>
 <kw name="Get Attribute" owner="Browser">
 <msg time="2026-11-03T10:10:56.253467" level="INFO">Attribute is: 'false'</msg>
 <msg time="2026-11-03T10:10:56.253713" level="INFO">${expanded} = false</msg>
+=======
+<status status="PASS" start="2026-10-29T22:32:58.424119" elapsed="3.466946"/>
+</kw>
+<status status="PASS" start="2026-10-29T22:32:50.651486" elapsed="11.239810"/>
+</kw>
+<kw name="Get Dropdown Options" owner="dropdown">
+<kw name="Ensure Dropdown Is Open" owner="dropdown">
+<kw name="Get Attribute" owner="Browser">
+<msg time="2026-10-29T22:33:01.983155" level="INFO">Attribute is: 'false'</msg>
+<msg time="2026-10-29T22:33:01.983840" level="INFO">${expanded} = false</msg>
+>>>>>>> Stashed changes
 <var>${expanded}</var>
 <arg>${dropdown_locator} &gt;&gt; ${DROPDOWN_COMBOBOX}</arg>
 <arg>aria-expanded</arg>
@@ -442,26 +566,42 @@ the error is ignored on older versions.</doc>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the HTML ``attribute`` of the element found by ``selector``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:56.230142" elapsed="0.023659"/>
+=======
+<status status="PASS" start="2026-10-29T22:33:01.897297" elapsed="0.086706"/>
+>>>>>>> Stashed changes
 </kw>
 <if>
 <branch type="IF" condition="'${expanded}' != 'true'">
 <kw name="Open Dropdown" owner="dropdown">
 <kw name="Click" owner="Browser">
+<<<<<<< Updated upstream
 <msg time="2026-11-03T10:10:56.257545" level="INFO">Clicks the element 'css=div.flex-column:has(&gt; label:text-is("Salary Group")) ng-select'.</msg>
+=======
+<msg time="2026-10-29T22:33:01.989489" level="INFO">Clicks the element 'css=div.flex-column:has(&gt; label:text-is("Payment Through")) ng-select'.</msg>
+>>>>>>> Stashed changes
 <arg>${dropdown_locator}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:56.255739" elapsed="0.110776"/>
 </kw>
 <kw name="Wait For Elements State" owner="Browser">
 <msg time="2026-11-03T10:10:56.384533" level="INFO">Waited for Element with selector css=ng-dropdown-panel[role="listbox"] at state visible</msg>
+=======
+<status status="PASS" start="2026-10-29T22:33:01.987647" elapsed="0.312174"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-29T22:33:02.316925" level="INFO">Waited for Element with selector css=ng-dropdown-panel[role="listbox"] at state visible</msg>
+>>>>>>> Stashed changes
 <arg>${DROPDOWN_PANEL}</arg>
 <arg>visible</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:56.370299" elapsed="0.015802"/>
 </kw>
 <arg>${dropdown_locator}</arg>
@@ -478,19 +618,42 @@ the error is ignored on older versions.</doc>
 <kw name="Run Keyword And Ignore Error" owner="BuiltIn">
 <kw name="Wait For Elements State" owner="Browser">
 <msg time="2026-11-03T10:10:56.416314" level="INFO">Waited for Element with selector css=ng-dropdown-panel[role="listbox"] at state visible</msg>
+=======
+<status status="PASS" start="2026-10-29T22:33:02.300715" elapsed="0.016602"/>
+</kw>
+<arg>${dropdown_locator}</arg>
+<status status="PASS" start="2026-10-29T22:33:01.985855" elapsed="0.331861"/>
+</kw>
+<status status="PASS" start="2026-10-29T22:33:01.984555" elapsed="0.333306"/>
+</branch>
+<status status="PASS" start="2026-10-29T22:33:01.984429" elapsed="0.333565"/>
+</if>
+<arg>${dropdown_locator}</arg>
+<doc>Opens the dropdown only when it is closed (a click on an open one would close it).</doc>
+<status status="PASS" start="2026-10-29T22:33:01.895585" elapsed="0.422594"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" owner="BuiltIn">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-29T22:33:02.337467" level="INFO">Waited for Element with selector css=ng-dropdown-panel[role="listbox"] at state visible</msg>
+>>>>>>> Stashed changes
 <arg>${DROPDOWN_PANEL}</arg>
 <arg>visible</arg>
 <arg>timeout=3s</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:56.398185" elapsed="0.018508"/>
+=======
+<status status="PASS" start="2026-10-29T22:33:02.320873" elapsed="0.017041"/>
+>>>>>>> Stashed changes
 </kw>
 <arg>Wait For Elements State</arg>
 <arg>${DROPDOWN_PANEL}</arg>
 <arg>visible</arg>
 <arg>timeout=3s</arg>
 <doc>Runs the given keyword with the given arguments and ignores possible errorw.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:56.394848" elapsed="0.022417"/>
 </kw>
 <kw name="Get Visible Dropdown Options" owner="dropdown">
@@ -500,10 +663,22 @@ the error is ignored on older versions.</doc>
 <var>${options}</var>
 <arg>${DROPDOWN_PANEL}</arg>
 <arg>(el) =&gt; Array.from(el.querySelectorAll('.ng-option:not(.ng-option-disabled)')).map(o =&gt; o.innerText.trim())</arg>
+=======
+<status status="PASS" start="2026-10-29T22:33:02.318824" elapsed="0.019485"/>
+</kw>
+<kw name="Get Visible Dropdown Options" owner="dropdown">
+<kw name="Evaluate JavaScript" owner="Browser">
+<msg time="2026-10-29T22:33:02.374639" level="INFO">JavaScript executed successfully.</msg>
+<msg time="2026-10-29T22:33:02.375309" level="INFO">${options} = ['Bank Transfer', 'Cash', 'Cheque']</msg>
+<var>${options}</var>
+<arg>${DROPDOWN_PANEL}</arg>
+<arg>(el) =&gt; Array.from(el.querySelectorAll('.ng-option:not(.ng-option-disabled)')).map(o =&gt; o.innerText.split('\\n')[0].trim())</arg>
+>>>>>>> Stashed changes
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Executes the given JavaScript in the browser page.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:56.418923" elapsed="0.061393"/>
 </kw>
 <return>
@@ -513,6 +688,17 @@ the error is ignored on older versions.</doc>
 <msg time="2026-11-03T10:10:56.483164" level="INFO">${options} = ['RTFI', 'PAUT', 'WQT', 'Full Salary', 'PWHT', 'DEEM/NDT', 'Half Salary', 'Office', 'NDT']</msg>
 <var>${options}</var>
 <status status="PASS" start="2026-11-03T10:10:56.417882" elapsed="0.065408"/>
+=======
+<status status="PASS" start="2026-10-29T22:33:02.340555" elapsed="0.034883"/>
+</kw>
+<return>
+<value>${options}</value>
+<status status="PASS" start="2026-10-29T22:33:02.375756" elapsed="0.000498"/>
+</return>
+<msg time="2026-10-29T22:33:02.376792" level="INFO">${options} = ['Bank Transfer', 'Cash', 'Cheque']</msg>
+<var>${options}</var>
+<status status="PASS" start="2026-10-29T22:33:02.338901" elapsed="0.038004"/>
+>>>>>>> Stashed changes
 </kw>
 <kw name="Close Dropdown" owner="dropdown">
 <kw name="Press Keys" owner="Browser">
@@ -521,15 +707,23 @@ the error is ignored on older versions.</doc>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Types the given key combination into element found by ``selector``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:56.485271" elapsed="0.031676"/>
 </kw>
 <kw name="Wait For Elements State" owner="Browser">
 <msg time="2026-11-03T10:10:56.527022" level="INFO">Waited for Element with selector css=ng-dropdown-panel[role="listbox"] at state hidden</msg>
+=======
+<status status="PASS" start="2026-10-29T22:33:02.379081" elapsed="0.041312"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-29T22:33:02.436291" level="INFO">Waited for Element with selector css=ng-dropdown-panel[role="listbox"] at state hidden</msg>
+>>>>>>> Stashed changes
 <arg>${DROPDOWN_PANEL}</arg>
 <arg>hidden</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:10:56.517489" elapsed="0.009909"/>
 </kw>
 <arg>${dropdown_locator}</arg>
@@ -4622,56 +4816,123 @@ Works when the list is empty (the panel may only hold the disabled placeholder).
 </if>
 <if>
 <branch type="IF" condition="$payment != ''">
+=======
+<status status="PASS" start="2026-10-29T22:33:02.421274" elapsed="0.015536"/>
+</kw>
+<arg>${dropdown_locator}</arg>
+<status status="PASS" start="2026-10-29T22:33:02.377462" elapsed="0.059664"/>
+</kw>
+<return>
+<value>${options}</value>
+<status status="PASS" start="2026-10-29T22:33:02.437364" elapsed="0.000517"/>
+</return>
+<msg time="2026-10-29T22:33:02.438346" level="INFO">${options} = ['Bank Transfer', 'Cash', 'Cheque']</msg>
+<var>${options}</var>
+<arg>${PAYSLIP_PAYMENT_THROUGH_DROPDOWN}</arg>
+<doc>Opens the dropdown if needed, returns the enabled option texts and closes it.
+Works when the list is empty (the panel may only hold the disabled placeholder).</doc>
+<status status="PASS" start="2026-10-29T22:33:01.893252" elapsed="0.545194"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2026-10-29T22:33:02.447004" level="INFO">Length is 3.</msg>
+<msg time="2026-10-29T22:33:02.447454" level="INFO">${count} = 3</msg>
+<var>${count}</var>
+<arg>${options}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2026-10-29T22:33:02.439408" elapsed="0.008160"/>
+</kw>
+<kw name="Skip If" owner="BuiltIn">
+<arg>${count} &lt; 2</arg>
+<arg>Need at least two payment methods.</arg>
+<doc>Conditionally stops the current test or task and sets its status to SKIP.</doc>
+<status status="PASS" start="2026-10-29T22:33:02.448468" elapsed="0.002647"/>
+</kw>
+>>>>>>> Stashed changes
 <kw name="Select Payslip Payment Through" owner="payslip_page">
 <kw name="Select Payslip Dropdown Value" owner="payslip_page">
 <kw name="Open Dropdown" owner="dropdown">
 <kw name="Click" owner="Browser">
+<<<<<<< Updated upstream
 <msg time="2026-11-03T10:11:08.839348" level="INFO">Clicks the element 'css=div.flex-column:has(&gt; label:text-is("Payment Through")) ng-select'.</msg>
+=======
+<msg time="2026-10-29T22:33:02.470433" level="INFO">Clicks the element 'css=div.flex-column:has(&gt; label:text-is("Payment Through")) ng-select'.</msg>
+>>>>>>> Stashed changes
 <arg>${dropdown_locator}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:11:08.836983" elapsed="0.064386"/>
 </kw>
 <kw name="Wait For Elements State" owner="Browser">
 <msg time="2026-11-03T10:11:08.912890" level="INFO">Waited for Element with selector css=ng-dropdown-panel[role="listbox"] at state visible</msg>
+=======
+<status status="PASS" start="2026-10-29T22:33:02.465260" elapsed="0.181911"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-29T22:33:02.751493" level="INFO">Waited for Element with selector css=ng-dropdown-panel[role="listbox"] at state visible</msg>
+>>>>>>> Stashed changes
 <arg>${DROPDOWN_PANEL}</arg>
 <arg>visible</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:11:08.901934" elapsed="0.011165"/>
 </kw>
 <arg>${dropdown_locator}</arg>
 <status status="PASS" start="2026-11-03T10:11:08.836434" elapsed="0.076839"/>
+=======
+<status status="PASS" start="2026-10-29T22:33:02.648080" elapsed="0.103880"/>
+</kw>
+<arg>${dropdown_locator}</arg>
+<status status="PASS" start="2026-10-29T22:33:02.462092" elapsed="0.290187"/>
+>>>>>>> Stashed changes
 </kw>
 <if>
 <branch type="IF" condition="$search_text != ''">
 <kw name="Search Dropdown Options" owner="dropdown">
 <arg>${dropdown_locator}</arg>
 <arg>${search_text}</arg>
+<<<<<<< Updated upstream
 <status status="NOT RUN" start="2026-11-03T10:11:08.914015" elapsed="0.000166"/>
 </kw>
 <status status="NOT RUN" start="2026-11-03T10:11:08.913423" elapsed="0.000850"/>
 </branch>
 <status status="PASS" start="2026-11-03T10:11:08.913384" elapsed="0.000962"/>
+=======
+<status status="NOT RUN" start="2026-10-29T22:33:02.767658" elapsed="0.000526"/>
+</kw>
+<status status="NOT RUN" start="2026-10-29T22:33:02.752611" elapsed="0.015829"/>
+</branch>
+<status status="PASS" start="2026-10-29T22:33:02.752508" elapsed="0.016131"/>
+>>>>>>> Stashed changes
 </if>
 <kw name="Dropdown Options Should Be Visible" owner="dropdown">
 <for flavor="IN">
 <iter>
 <kw name="Get Element Count" owner="Browser">
+<<<<<<< Updated upstream
 <msg time="2026-11-03T10:11:08.923534" level="INFO">${count} = 1</msg>
+=======
+<msg time="2026-10-29T22:33:02.803702" level="INFO">${count} = 1</msg>
+>>>>>>> Stashed changes
 <var>${count}</var>
 <arg>${DROPDOWN_OPTION}:has-text("${option}")</arg>
 <tag>Assertion</tag>
 <tag>Getter</tag>
 <tag>PageContent</tag>
 <doc>Returns the count of elements found with ``selector``.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:11:08.915608" elapsed="0.008041"/>
+=======
+<status status="PASS" start="2026-10-29T22:33:02.772327" elapsed="0.031519"/>
+>>>>>>> Stashed changes
 </kw>
 <kw name="Should Be True" owner="BuiltIn">
 <arg>${count} &gt; 0</arg>
 <doc>Fails if the given condition is not true.</doc>
+<<<<<<< Updated upstream
 <status status="PASS" start="2026-11-03T10:11:08.924327" elapsed="0.001327"/>
 </kw>
 <var name="${option}">Bank Transfer</var>
@@ -10650,10 +10911,51 @@ it is set first and the resulting value (YYYY-MM) is verified.</doc>
 </kw>
 <kw name="Wait For Elements State" owner="Browser">
 <arg>text="Payslip Generated Successfully"</arg>
+=======
+<status status="PASS" start="2026-10-29T22:33:02.804560" elapsed="0.001458"/>
+</kw>
+<var name="${option}">Bank Transfer</var>
+<status status="PASS" start="2026-10-29T22:33:02.771460" elapsed="0.038709"/>
+</iter>
+<var>${option}</var>
+<value>@{expected_options}</value>
+<status status="PASS" start="2026-10-29T22:33:02.770544" elapsed="0.040064"/>
+</for>
+<arg>${option_text}</arg>
+<doc>Checks the open panel (includes the disabled placeholder row).</doc>
+<status status="PASS" start="2026-10-29T22:33:02.769327" elapsed="0.041674"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-29T22:33:02.813153" level="INFO">${option_locator} = css=ng-dropdown-panel[role="listbox"] [role="option"]:has-text("Bank Transfer")</msg>
+<var>${option_locator}</var>
+<arg>css=ng-dropdown-panel[role="listbox"] [role="option"]:has-text("${option_text}")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-29T22:33:02.811596" elapsed="0.001705"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-29T22:33:02.815832" level="INFO">Clicks the element 'css=ng-dropdown-panel[role="listbox"] [role="option"]:has-text("Bank Transfer")'.</msg>
+<arg>${option_locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-29T22:33:02.813969" elapsed="0.104890"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-29T22:33:02.921046" level="INFO">${selected_value_locator} = css=div.flex-column:has(&gt; label:text-is("Payment Through")) ng-select .ng-value-label:has-text("Bank Transfer")</msg>
+<var>${selected_value_locator}</var>
+<arg>${dropdown_locator} .ng-value-label:has-text("${option_text}")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-29T22:33:02.919551" elapsed="0.001622"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-29T22:33:02.947519" level="INFO">Waited for Element with selector css=div.flex-column:has(&gt; label:text-is("Payment Through")) ng-select .ng-value-label:has-text("Bank Transfer") at state visible</msg>
+<arg>${selected_value_locator}</arg>
+>>>>>>> Stashed changes
 <arg>visible</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<<<<<<< Updated upstream
 <status status="NOT RUN" start="2026-11-03T10:11:39.693202" elapsed="0.000477"/>
 </kw>
 <kw name="Log Step">
@@ -11141,11 +11443,228 @@ Call log:
 <tag>Setter</tag>
 <doc>Closes the current browser.</doc>
 <status status="PASS" start="2026-11-03T10:12:26.947529" elapsed="1.273693"/>
+=======
+<status status="PASS" start="2026-10-29T22:33:02.921941" elapsed="0.025918"/>
+</kw>
+<arg>${PAYSLIP_PAYMENT_THROUGH_DROPDOWN}</arg>
+<arg>${payment_method}</arg>
+<arg>${search_text}</arg>
+<status status="PASS" start="2026-10-29T22:33:02.454545" elapsed="0.493567"/>
+</kw>
+<arg>${options}[0]</arg>
+<status status="PASS" start="2026-10-29T22:33:02.452249" elapsed="0.496016"/>
+</kw>
+<kw name="Select Payslip Payment Through" owner="payslip_page">
+<kw name="Select Payslip Dropdown Value" owner="payslip_page">
+<kw name="Open Dropdown" owner="dropdown">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-29T22:33:02.953479" level="INFO">Clicks the element 'css=div.flex-column:has(&gt; label:text-is("Payment Through")) ng-select'.</msg>
+<arg>${dropdown_locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-29T22:33:02.952428" elapsed="0.105844"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-29T22:33:03.071912" level="INFO">Waited for Element with selector css=ng-dropdown-panel[role="listbox"] at state visible</msg>
+<arg>${DROPDOWN_PANEL}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.059775" elapsed="0.012428"/>
+</kw>
+<arg>${dropdown_locator}</arg>
+<status status="PASS" start="2026-10-29T22:33:02.951612" elapsed="0.120823"/>
+</kw>
+<if>
+<branch type="IF" condition="$search_text != ''">
+<kw name="Search Dropdown Options" owner="dropdown">
+<arg>${dropdown_locator}</arg>
+<arg>${search_text}</arg>
+<status status="NOT RUN" start="2026-10-29T22:33:03.075585" elapsed="0.000629"/>
+</kw>
+<status status="NOT RUN" start="2026-10-29T22:33:03.072632" elapsed="0.003879"/>
+</branch>
+<status status="PASS" start="2026-10-29T22:33:03.072583" elapsed="0.004131"/>
+</if>
+<kw name="Dropdown Options Should Be Visible" owner="dropdown">
+<for flavor="IN">
+<iter>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-29T22:33:03.090827" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<arg>${DROPDOWN_OPTION}:has-text("${option}")</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.080072" elapsed="0.010957"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${count} &gt; 0</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.092326" elapsed="0.002024"/>
+</kw>
+<var name="${option}">Cash</var>
+<status status="PASS" start="2026-10-29T22:33:03.079554" elapsed="0.015043"/>
+</iter>
+<var>${option}</var>
+<value>@{expected_options}</value>
+<status status="PASS" start="2026-10-29T22:33:03.078935" elapsed="0.015898"/>
+</for>
+<arg>${option_text}</arg>
+<doc>Checks the open panel (includes the disabled placeholder row).</doc>
+<status status="PASS" start="2026-10-29T22:33:03.078055" elapsed="0.017107"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-29T22:33:03.097200" level="INFO">${option_locator} = css=ng-dropdown-panel[role="listbox"] [role="option"]:has-text("Cash")</msg>
+<var>${option_locator}</var>
+<arg>css=ng-dropdown-panel[role="listbox"] [role="option"]:has-text("${option_text}")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.095739" elapsed="0.001578"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-29T22:33:03.099343" level="INFO">Clicks the element 'css=ng-dropdown-panel[role="listbox"] [role="option"]:has-text("Cash")'.</msg>
+<arg>${option_locator}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.097930" elapsed="0.103851"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-29T22:33:03.203663" level="INFO">${selected_value_locator} = css=div.flex-column:has(&gt; label:text-is("Payment Through")) ng-select .ng-value-label:has-text("Cash")</msg>
+<var>${selected_value_locator}</var>
+<arg>${dropdown_locator} .ng-value-label:has-text("${option_text}")</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.202455" elapsed="0.001302"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-29T22:33:03.221214" level="INFO">Waited for Element with selector css=div.flex-column:has(&gt; label:text-is("Payment Through")) ng-select .ng-value-label:has-text("Cash") at state visible</msg>
+<arg>${selected_value_locator}</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.204204" elapsed="0.017581"/>
+</kw>
+<arg>${PAYSLIP_PAYMENT_THROUGH_DROPDOWN}</arg>
+<arg>${payment_method}</arg>
+<arg>${search_text}</arg>
+<status status="PASS" start="2026-10-29T22:33:02.950552" elapsed="0.271588"/>
+</kw>
+<arg>${options}[1]</arg>
+<status status="PASS" start="2026-10-29T22:33:02.948938" elapsed="0.273407"/>
+</kw>
+<kw name="Dropdown Selected Value Count Should Be" owner="dropdown">
+<kw name="Get Element Count" owner="Browser">
+<arg>${dropdown_locator} &gt;&gt; ${DROPDOWN_VALUE_LABEL}</arg>
+<arg>==</arg>
+<arg>${expected_count}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.226055" elapsed="0.017241"/>
+</kw>
+<arg>${PAYSLIP_PAYMENT_THROUGH_DROPDOWN}</arg>
+<arg>1</arg>
+<status status="PASS" start="2026-10-29T22:33:03.224145" elapsed="0.020146"/>
+</kw>
+<kw name="Dropdown Selected Value Should Be" owner="dropdown">
+<kw name="Get Dropdown Selected Value" owner="dropdown">
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-29T22:33:03.271771" level="INFO">${count} = 1</msg>
+<var>${count}</var>
+<arg>${dropdown_locator} &gt;&gt; ${DROPDOWN_VALUE_LABEL}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.250702" elapsed="0.021184"/>
+</kw>
+<if>
+<branch type="IF" condition="${count} == 0">
+<return>
+<value>${EMPTY}</value>
+<status status="NOT RUN" start="2026-10-29T22:33:03.272776" elapsed="0.002140"/>
+</return>
+<status status="NOT RUN" start="2026-10-29T22:33:03.272173" elapsed="0.003152"/>
+</branch>
+<status status="PASS" start="2026-10-29T22:33:03.272117" elapsed="0.003448"/>
+</if>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-29T22:33:03.324508" level="INFO">Text: ['Cash']</msg>
+<msg time="2026-10-29T22:33:03.324968" level="INFO">${text} = Cash</msg>
+<var>${text}</var>
+<arg>${dropdown_locator} &gt;&gt; ${DROPDOWN_VALUE_LABEL} &gt;&gt; nth=0</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.276534" elapsed="0.048568"/>
+</kw>
+<kw name="Strip String" owner="String">
+<msg time="2026-10-29T22:33:03.326697" level="INFO">${text} = Cash</msg>
+<var>${text}</var>
+<arg>${text}</arg>
+<doc>Remove leading and/or trailing whitespaces from the given string.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.325623" elapsed="0.001348"/>
+</kw>
+<return>
+<value>${text}</value>
+<status status="PASS" start="2026-10-29T22:33:03.327613" elapsed="0.000431"/>
+</return>
+<msg time="2026-10-29T22:33:03.328595" level="INFO">${actual} = Cash</msg>
+<var>${actual}</var>
+<arg>${dropdown_locator}</arg>
+<doc>Returns the text of the selected value for single-select dropdowns (or empty string if none).</doc>
+<status status="PASS" start="2026-10-29T22:33:03.248901" elapsed="0.079833"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${actual}</arg>
+<arg>${expected_text}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.329616" elapsed="0.001355"/>
+</kw>
+<arg>${PAYSLIP_PAYMENT_THROUGH_DROPDOWN}</arg>
+<arg>${options}[1]</arg>
+<doc>Exact text check for single-select dropdown.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.246425" elapsed="0.084767"/>
+</kw>
+<kw name="Close Test Context" owner="common" type="TEARDOWN">
+<kw name="Close Context" owner="Browser">
+<msg time="2026-10-29T22:33:03.337417" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2026-10-29T22:33:03.346331" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2026-10-29T22:33:03.351070" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2026-10-29T22:33:03.367553" level="INFO">Returned active context id: CURRENT</msg>
+<msg time="2026-10-29T22:33:03.368453" level="INFO">Switching context to context=75117468-7791-49ea-bdf4-f578274587f5 in CURRENT</msg>
+<msg time="2026-10-29T22:33:03.379205" level="INFO">Successfully changed active context: context=75117468-7791-49ea-bdf4-f578274587f5</msg>
+<msg time="2026-10-29T22:33:03.431329" level="INFO">Successfully closed Context</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.332966" elapsed="0.098834"/>
+</kw>
+<status status="PASS" start="2026-10-29T22:33:03.332034" elapsed="0.100114"/>
+</kw>
+<tag>dropdown</tag>
+<tag>payslip</tag>
+<status status="PASS" start="2026-10-29T22:32:50.595161" elapsed="12.838041"/>
+</test>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-29T22:33:04.614930" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-29T22:33:03.649441" elapsed="0.965867"/>
+>>>>>>> Stashed changes
 </kw>
 <status status="PASS" start="2026-11-03T10:11:39.887349" elapsed="48.334992"/>
 </kw>
 <doc>Salary Account E2E: ONE test that walks the whole business flow.
 
+<<<<<<< Updated upstream
 Payslip (created by the fixture) -&gt; Salary Account form -&gt; month picker -&gt;
 payslip dropdown -&gt; auto patched fields + preview -&gt; non editable -&gt; save -&gt;
 duplicate payslip is no longer listed.
@@ -11169,5 +11688,26 @@ all work together, and the full test case file is safe to run.</doc>
 </statistics>
 <errors>
 <msg time="2026-11-03T10:11:10.291223" level="WARN">Payslip number changed by the app: PS/2026/0031 -&gt; PS/2026/0032</msg>
+=======
+Tests tagged "data" CREATE payslips (Save) and pick the employee dynamically
+from the dropdown, so each run uses up one available employee for the month
+used by that scenario. Change the SCENARIO_* months below when they run out.</doc>
+<status status="PASS" start="2026-10-29T22:32:46.413793" elapsed="18.201711"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">dropdown</stat>
+<stat pass="1" fail="0" skip="0">payslip</stat>
+</tag>
+<suite>
+<stat name="Payslip" id="s1" pass="1" fail="0" skip="0">Payslip</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2026-10-29T22:32:47.751891" level="ERROR">Error in file 'C:\Users\aadhi\automation_using_robot_framework\resources\pages\payslip_page.resource' on line 109: Resource file '..\components\date_picker.resource' does not exist.</msg>
+>>>>>>> Stashed changes
 </errors>
 </robot>

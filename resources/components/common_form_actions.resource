@@ -104,6 +104,18 @@ Add New Button Should Be Visible
         ...    xpath=//button[contains(@class,'btn')][normalize-space(.)='Add New ${name}']    visible
     END
 
+Add New Button Should Not Be Visible
+    [Documentation]    Verifies there is no "Add New ..." button (e.g. for L2/L3/L4 users).
+    [Arguments]    ${name}=${EMPTY}
+    Wait For Load State    networkidle
+    IF    $name == ''
+        Get Element Count    ${LIST_ADD_NEW_BUTTON}    ==    0
+    ELSE
+        Get Element Count
+        ...    xpath=//button[contains(@class,'btn')][normalize-space(.)='Add New ${name}']    ==    0
+    END
+
+
 Click Edit Button In Row
     [Documentation]    The row text must be unique, e.g. a payslip number.
     [Arguments]    ${row_text}
